@@ -1,0 +1,76 @@
+Changelog of the Qt Configuration Tool
+
+-----------
+Version 0.1
+* first test release
+
+Version 0.2
+* fixed Qt 6.0 Beta2 support
+* updated Danish translation (scootergrisen)
+
+Version 0.3
+* added cmake support (experimental)
+* fixed color schemes
+* fixed palette updating
+* updated Finish translation (Nikolay Korotkiy)
+* updated German translation (LeSnake)
+
+Version 0.4
+* fixed cmake support
+* fixed build with Qt 6.1 using cmake
+* prepend custom stylesheets to the application stylesheet (John Lindgren)
+
+Version 0.5
+* added troubleshooting settings
+* fixed issue with custom palette
+* updated Dutch translation (Heimen Stoffels)
+* updated Spanish translation (Toni Estévez and salazarbarrera)
+* updated Russian translation
+* updated Greek translation (Dimitrios Glentadakis)
+
+Version 0.6
+* added Qt 6.4 support
+* added Qt version checking
+* added xdgdesktopportal dialogs support (Marco Genasci)
+* improved warning about incorrect environment variable
+* only prepend user stylesheet if it has changed (Carlo Teubner)
+* removed Qt Concurrent dependency
+* fixed issue with missing Ukrainian transation
+* updated Bulgarian translation (Kiril Kirilov)
+* updated Catalan translation (Toni Estévez)
+* updated Czech translation (fri)
+* updated Dutch translation (Heimen Stoffels)
+* updated Polish translation (Marek Adamski)
+* updated Russian translation
+* updated Spanish translation (Toni Estévez)
+* updated Greek translation (Dimitrios Glentadakis)
+
+Version 0.7
+* fixed crash when loading default font
+* changed font configuration format
+* improved icon loader
+* updated Czech translation (fri)
+
+Version 0.8
+* added keywords entry to desktop file (Mateusz Łukasik)
+* fixed compatibility with applications that use own stylesheet (John Lindgren)
+* fixed font applying issue
+* updated Japanese translation (UTUMI Hirosi)
+
+Version 0.9
+* added Qt 6.6 compatibility
+* added compatibility with QT_STYLE_OVERRIDE=qt5ct-style (RushingAlien)
+* improved cmake build:
+  - make translations optional (Jonas Kvinge)
+  - enabled reproducible build by default
+  - other fixes and improvements (Jonas Kvinge)
+* fixed crash on QML applications
+* fixed parallel build using qmake
+* fixed localization support
+* updated Dutch translation (Heimen Stoffels)
+* updated Polish translation (Marek Adamski)
+* updated Russian translation
+* updated French translation (Wallon)
+
+Version 0.10.1
+* Windows support

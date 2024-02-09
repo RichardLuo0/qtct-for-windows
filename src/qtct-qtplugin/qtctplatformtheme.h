@@ -1,0 +1,114 @@
+/*
+ * Copyright (c) 2020-2024, Ilya Kotov <forkotov02@ya.ru>
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in
+ *    the documentation and/or other materials provided with the
+ *    distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+#ifndef QTCTPLATFORMTHEME_H
+#define QTCTPLATFORMTHEME_H
+
+#include <private/qguiapplication_p.h>
+#include <qpa/qplatformintegration.h>
+#include <qpa/qplatformtheme.h>
+
+#include <QFileInfo>
+#include <QFont>
+#include <QIcon>
+#include <QLoggingCategory>
+#include <QObject>
+#include <QPalette>
+#include <QScopedPointer>
+
+Q_DECLARE_LOGGING_CATEGORY(lqtct)
+
+class QtCTPlatformTheme : public QObject, public QPlatformTheme {
+  Q_OBJECT
+ public:
+  QtCTPlatformTheme();
+
+  virtual ~QtCTPlatformTheme();
+
+  virtual QPlatformMenuItem *createPlatformMenuItem() const override;
+  virtual QPlatformMenu *createPlatformMenu() const override;
+  virtual QPlatformMenuBar *createPlatformMenuBar() const override;
+  virtual void showPlatformMenuBar() override;
+  virtual bool usePlatformNativeDialog(DialogType type) const override;
+  virtual QPlatformDialogHelper *createPlatformDialogHelper(
+      DialogType type) const override;
+  virtual QPlatformSystemTrayIcon *createPlatformSystemTrayIcon()
+      const override;
+  virtual const QPalette *palette(Palette type = SystemPalette) const override;
+  virtual const QFont *font(Font type = SystemFont) const override;
+  virtual QVariant themeHint(ThemeHint hint) const override;
+  virtual QIcon fileIcon(
+      const QFileInfo &fileInfo,
+      QPlatformTheme::IconOptions iconOptions = {}) const override;
+  virtual QPixmap standardPixmap(StandardPixmap sp,
+                                 const QSizeF &size) const override;
+  // virtual QPixmap fileIconPixmap(const QFileInfo &fileInfo, const QSizeF
+  // &size,
+  //                                QPlatformTheme::IconOptions iconOptions = 0)
+  //                                const;
+
+  virtual QIconEngine *createIconEngine(const QString &iconName) const override;
+  // virtual QList<QKeySequence> keyBindings(QKeySequence::StandardKey key)
+  // const; virtual QString standardButtonText(int button) const;
+
+ private slots:
+  void applySettings();
+#ifdef QT_WIDGETS_LIB
+  void createFSWatcher();
+  void updateSettings();
+#endif
+
+ private:
+  void readSettings();
+#ifdef QT_WIDGETS_LIB
+  bool hasWidgets();
+#endif
+  QString loadStyleSheets(const QStringList &paths);
+  QString m_style, m_iconTheme, m_userStyleSheet, m_prevStyleSheet;
+  QVariant m_palette;
+  bool m_fontOverride = false;
+  QFont m_generalFont, m_fixedFont;
+  int m_doubleClickInterval;
+  int m_cursorFlashTime;
+  int m_uiEffects;
+  int m_buttonBoxLayout;
+  int m_keyboardScheme;
+  bool m_update = false;
+  bool m_usePalette = true;
+  int m_toolButtonStyle = Qt::ToolButtonFollowStyle;
+  int m_wheelScrollLines = 3;
+  bool m_showShortcutsInContextMenus = false;
+  bool m_isIgnored = false;
+  QScopedPointer<QPlatformTheme> m_theme;
+
+  QScopedPointer<QPlatformTheme> winTheme;
+};
+
+Q_DECLARE_LOGGING_CATEGORY(lqtct)
+
+#endif  // QTCTPLATFORMTHEME_H
