@@ -91,6 +91,27 @@ int QtCTProxyStyle::styleHint(QStyle::StyleHint hint,
   return QProxyStyle::styleHint(hint, option, widget, returnData);
 }
 
-void QtCTProxyStyle::polish(QWidget *widget) {
-  return QProxyStyle::polish(widget);
-}
+// QSet<HWND> enabledWindowList;
+
+/* MARGINS margins = {-1};
+int darkMode = true;
+auto mica_value = DWM_SYSTEMBACKDROP_TYPE::DWMSBT_TRANSIENTWINDOW; */
+
+// void QtCTProxyStyle::polish(QWidget *widget) {
+//   if (!enabledWindowList.contains((HWND)widget->winId())) {
+//     HWND hwnd = (HWND)widget->winId();
+//     enabledWindowList.insert(hwnd);
+
+//     widget->setStyleSheet("background:transparent");
+
+//     DwmExtendFrameIntoClientArea(hwnd, &margins);
+//     DwmSetWindowAttribute(hwnd,
+//                           DWMWINDOWATTRIBUTE::DWMWA_USE_IMMERSIVE_DARK_MODE,
+//                           &darkMode, sizeof(int));
+//     DwmSetWindowAttribute(hwnd,
+//     DWMWINDOWATTRIBUTE::DWMWA_SYSTEMBACKDROP_TYPE,
+//                           &mica_value, sizeof(mica_value));
+//   }
+
+//   return QProxyStyle::polish(widget);
+// }

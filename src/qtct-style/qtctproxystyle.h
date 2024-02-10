@@ -45,7 +45,7 @@ class QtCTProxyStyle : public QProxyStyle, public QtCT::StyleInstance {
                 const QWidget *widget,
                 QStyleHintReturn *returnData) const override;
 
-  void polish(QWidget *widget) override;
+  // void polish(QWidget *widget) override;
 
  private:
   QString m_style;

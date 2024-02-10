@@ -112,7 +112,7 @@ QPlatformSystemTrayIcon *QtCTPlatformTheme::createPlatformSystemTrayIcon()
 }
 
 const QPalette *QtCTPlatformTheme::palette(QPlatformTheme::Palette type) const {
-  return (m_usePalette && !m_palette.isValid())
+  return (m_usePalette && m_palette.isValid())
              ? new QPalette(m_palette.value<QPalette>())
              : winTheme->palette(type);
 }

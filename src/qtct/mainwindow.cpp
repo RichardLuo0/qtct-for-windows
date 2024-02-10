@@ -110,14 +110,11 @@ void MainWindow::checkConfiguration() {
   if (!env.contains("QT_QPA_PLATFORMTHEME")) {
     m_errors << tr(
         "The <b>QT_QPA_PLATFORMTHEME</b> environment variable is not set "
-        "(required values: <b>qtct</b>, <b>qt5ct</b> or <b>qt6ct</b>).");
-  } else if (env.value("QT_QPA_PLATFORMTHEME") != QStringLiteral("qtct") &&
-             env.value("QT_QPA_PLATFORMTHEME") != QStringLiteral("qt5ct") &&
-             env.value("QT_QPA_PLATFORMTHEME") != QStringLiteral("qt6ct")) {
+        "(required values: <b>qtct</b>).");
+  } else if (env.value("QT_QPA_PLATFORMTHEME") != QStringLiteral("qtct")) {
     m_errors << tr("The <b>QT_QPA_PLATFORMTHEME</b> environment variable is "
                    "not set correctly "
-                   "(current value: <b>%1</b>, required values: <b>qtct</b> "
-                   "or <b>qt5ct</b>).")
+                   "(current value: <b>%1</b>, required values: <b>qtct</b>.")
                     .arg(env.value("QT_QPA_PLATFORMTHEME"));
   }
 

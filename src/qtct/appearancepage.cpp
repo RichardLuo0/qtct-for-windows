@@ -50,7 +50,7 @@ AppearancePage::AppearancePage(QWidget *parent)
     : TabPage(parent), m_ui(new Ui::AppearancePage) {
   m_ui->setupUi(this);
   QStringList keys = QStyleFactory::keys();
-  keys.removeAll("QtCT-style");   // hide QtCT proxy style
+  keys.removeAll("qtct-style");   // hide QtCT proxy style
   keys.removeAll("qt5ct-style");  // hide qt5ct proxy style
   keys.removeAll("qt5gtk2");      // hide qt5gtk2 alias
   keys.removeAll("gtk2");         // hide gtk2 alias
