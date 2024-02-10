@@ -53,17 +53,16 @@ FontsPage::FontsPage(QWidget *parent)
           [=] { onFontChangeRequested(General); });
   connect(m_ui->changeFixedWidthFontButton, &QToolButton::clicked, this,
           [=] { onFontChangeRequested(Fixed); });
+  connect(m_ui->createFontsConfButton, &QPushButton::clicked, this,
+          &FontsPage::onCreateFontsConfButtonClicked);
+  connect(m_ui->removeFontsConfButton, &QPushButton::clicked, this,
+          &FontsPage::onRemoveFontsConfButtonClicked);
 
   readSettings();
 
   // icons
   m_ui->createFontsConfButton->setIcon(QIcon::fromTheme("document-new"));
   m_ui->removeFontsConfButton->setIcon(QIcon::fromTheme("edit-delete"));
-
-  connect(m_ui->createFontsConfButton, &QPushButton::clicked, this,
-          &FontsPage::onCreateFontsConfButtonClicked);
-  connect(m_ui->removeFontsConfButton, &QPushButton::clicked, this,
-          &FontsPage::onRemoveFontsConfButtonClicked);
 }
 
 FontsPage::~FontsPage() { delete m_ui; }

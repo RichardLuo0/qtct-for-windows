@@ -33,6 +33,12 @@
 
 #include "qtct.h"
 
+struct Backdrop {
+  int type;
+  int darkMode;
+  int transparency;
+};
+
 class QtCTProxyStyle : public QProxyStyle, public QtCT::StyleInstance {
   Q_OBJECT
  public:
@@ -45,13 +51,17 @@ class QtCTProxyStyle : public QProxyStyle, public QtCT::StyleInstance {
                 const QWidget *widget,
                 QStyleHintReturn *returnData) const override;
 
-  // void polish(QWidget *widget) override;
+  void polish(QWidget *widget) override;
+  void polish(QPalette &pal) override;
+  void unpolish(QWidget *widget) override;
 
  private:
   QString m_style;
   int m_dialogButtonsHaveIcons;
   int m_activateItemOnSingleClick;
   int m_underlineShortcut;
+
+  Backdrop backdrop;
 };
 
 #endif  // QTCTPROXYSTYLE_H

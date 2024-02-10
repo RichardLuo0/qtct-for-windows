@@ -57,13 +57,6 @@ QSSPage::QSSPage(QWidget *parent) : TabPage(parent), m_ui(new Ui::QSSPage) {
   m_menu->addAction(QIcon::fromTheme("edit-delete"), tr("Remove"), this,
                     SLOT(onRemoveButtonClicked()));
 
-  readSettings();
-
-  // icons
-  m_ui->createButton->setIcon(QIcon::fromTheme("document-new"));
-  m_ui->editButton->setIcon(QIcon::fromTheme("accessories-text-editor"));
-  m_ui->removeButton->setIcon(QIcon::fromTheme("edit-delete"));
-
   connect(m_ui->qssListWidget, &QListWidget::currentItemChanged, this,
           &QSSPage::onQssListWidgetCurrentItemChanged);
   connect(m_ui->createButton, &QPushButton::clicked, this,
@@ -76,6 +69,13 @@ QSSPage::QSSPage(QWidget *parent) : TabPage(parent), m_ui(new Ui::QSSPage) {
           &QSSPage::onRenameButtonClicked);
   connect(m_ui->qssListWidget, &QListWidget::customContextMenuRequested, this,
           &QSSPage::onQssListWidgetCustomContextMenuRequested);
+
+  readSettings();
+
+  // icons
+  m_ui->createButton->setIcon(QIcon::fromTheme("document-new"));
+  m_ui->editButton->setIcon(QIcon::fromTheme("accessories-text-editor"));
+  m_ui->removeButton->setIcon(QIcon::fromTheme("edit-delete"));
 }
 
 QSSPage::~QSSPage() { delete m_ui; }

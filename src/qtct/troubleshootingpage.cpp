@@ -37,12 +37,13 @@
 TroubleshootingPage::TroubleshootingPage(QWidget *parent)
     : TabPage(parent), m_ui(new Ui::TroubleshootingPage) {
   m_ui->setupUi(this);
-  readSettings();
 
   connect(m_ui->addAppButton, &QPushButton::clicked, this,
           &TroubleshootingPage::onAddAppButtonClicked);
   connect(m_ui->removeAppButton, &QPushButton::clicked, this,
           &TroubleshootingPage::onRemoveAppButtonClicked);
+
+  readSettings();
 }
 
 TroubleshootingPage::~TroubleshootingPage() { delete m_ui; }

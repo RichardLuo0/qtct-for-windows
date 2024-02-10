@@ -31,6 +31,7 @@
 #include <Windows.h>
 #include <dwmapi.h>
 
+#include <QDebug>
 #include <QSettings>
 #include <QStyleFactory>
 #include <QWidget>
@@ -41,6 +42,11 @@ QtCTProxyStyle::QtCTProxyStyle() {
   QtCT::registerStyleInstance(this);
   QtCTProxyStyle::reloadSettings();
 }
+
+QHash<QString, DWM_SYSTEMBACKDROP_TYPE> backdropTypeMap = {
+    {"default", DWM_SYSTEMBACKDROP_TYPE::DWMSBT_AUTO},
+    {"mica", DWM_SYSTEMBACKDROP_TYPE::DWMSBT_MAINWINDOW},
+    {"acrylic", DWM_SYSTEMBACKDROP_TYPE::DWMSBT_TRANSIENTWINDOW}};
 
 void QtCTProxyStyle::reloadSettings() {
   QSettings settings(QtCT::configFile(), QSettings::IniFormat);
@@ -68,6 +74,12 @@ void QtCTProxyStyle::reloadSettings() {
     setBaseStyle(QStyleFactory::create(style));
     m_style = style;
   }
+
+  settings.beginGroup("Appearance");
+  backdrop.type =
+      backdropTypeMap[settings.value("backdrop_type", "default").toString()];
+  backdrop.darkMode = settings.value("backdrop_dark_mode", false).toBool();
+  backdrop.transparency = settings.value("backdrop_transparency", 100).toInt();
 }
 
 QtCTProxyStyle::~QtCTProxyStyle() { QtCT::unregisterStyleInstance(this); }
@@ -91,27 +103,42 @@ int QtCTProxyStyle::styleHint(QStyle::StyleHint hint,
   return QProxyStyle::styleHint(hint, option, widget, returnData);
 }
 
-// QSet<HWND> enabledWindowList;
+void QtCTProxyStyle::polish(QPalette &pal) {
+  QProxyStyle::polish(pal);
+  QColor windowColor = QColor(pal.color(QPalette::Window));
+  windowColor.setAlphaF(backdrop.transparency / 100.);
+  pal.setColor(QPalette::Window, windowColor);
+}
 
-/* MARGINS margins = {-1};
-int darkMode = true;
-auto mica_value = DWM_SYSTEMBACKDROP_TYPE::DWMSBT_TRANSIENTWINDOW; */
+QSet<HWND> enabledWindowList;
+MARGINS margins = {-1};
 
-// void QtCTProxyStyle::polish(QWidget *widget) {
-//   if (!enabledWindowList.contains((HWND)widget->winId())) {
-//     HWND hwnd = (HWND)widget->winId();
-//     enabledWindowList.insert(hwnd);
+void QtCTProxyStyle::polish(QWidget *widget) {
+  if (backdrop.type != DWM_SYSTEMBACKDROP_TYPE::DWMSBT_AUTO) {
+    if ((widget->windowType() == Qt::Window ||
+         widget->windowType() == Qt::Dialog) &&
+        !enabledWindowList.contains((HWND)widget->winId())) {
+      HWND hwnd = (HWND)widget->winId();
+      enabledWindowList.insert(hwnd);
 
-//     widget->setStyleSheet("background:transparent");
+      qDebug() << hwnd;
 
-//     DwmExtendFrameIntoClientArea(hwnd, &margins);
-//     DwmSetWindowAttribute(hwnd,
-//                           DWMWINDOWATTRIBUTE::DWMWA_USE_IMMERSIVE_DARK_MODE,
-//                           &darkMode, sizeof(int));
-//     DwmSetWindowAttribute(hwnd,
-//     DWMWINDOWATTRIBUTE::DWMWA_SYSTEMBACKDROP_TYPE,
-//                           &mica_value, sizeof(mica_value));
-//   }
+      DwmExtendFrameIntoClientArea(hwnd, &margins);
+      DwmSetWindowAttribute(hwnd,
+                            DWMWINDOWATTRIBUTE::DWMWA_USE_IMMERSIVE_DARK_MODE,
+                            &backdrop.darkMode, sizeof(int));
+      DwmSetWindowAttribute(hwnd, DWMWINDOWATTRIBUTE::DWMWA_SYSTEMBACKDROP_TYPE,
+                            &backdrop.type, sizeof(backdrop.type));
+    }
+  }
 
-//   return QProxyStyle::polish(widget);
-// }
+  return QProxyStyle::polish(widget);
+}
+
+auto backdropAuto = DWM_SYSTEMBACKDROP_TYPE::DWMSBT_AUTO;
+
+void QtCTProxyStyle::unpolish(QWidget *widget) {
+  HWND hwnd = (HWND)widget->winId();
+  DwmSetWindowAttribute(hwnd, DWMWINDOWATTRIBUTE::DWMWA_SYSTEMBACKDROP_TYPE,
+                        &backdropAuto, sizeof(backdropAuto));
+}

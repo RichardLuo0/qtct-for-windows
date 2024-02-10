@@ -101,12 +101,21 @@ AppearancePage::AppearancePage(QWidget *parent)
   if (keys.contains("xdgdesktopportal"))
     m_ui->dialogComboBox->addItem("XDG Desktop Portal", "xdgdesktopportal");
 
-  readSettings();
+  m_ui->backdropTypeComboBox->addItem(tr("Default"), "default");
+  m_ui->backdropTypeComboBox->addItem("Mica", "mica");
+  m_ui->backdropTypeComboBox->addItem("Acrylic", "acrylic");
 
   connect(m_ui->styleComboBox, &QComboBox::textActivated, this,
           &AppearancePage::onStyleComboBoxTextActivated);
   connect(m_ui->colorSchemeComboBox, &QComboBox::activated, this,
           &AppearancePage::onColorSchemeComboBoxActivated);
+  connect(
+      m_ui->backdropTransparencySlider, &QSlider::valueChanged, this,
+      [&](int value) {
+        m_ui->backdropTransparencyLabel->setText(QString::number(value) + "%");
+      });
+
+  readSettings();
 }
 
 AppearancePage::~AppearancePage() {
@@ -123,6 +132,12 @@ void AppearancePage::writeSettings(QSettings *settings) {
                      m_ui->colorSchemeComboBox->currentData().toString());
   settings->setValue("standard_dialogs",
                      m_ui->dialogComboBox->currentData().toString());
+  settings->setValue("backdrop_type",
+                     m_ui->backdropTypeComboBox->currentData().toString());
+  settings->setValue("backdrop_dark_mode",
+                     m_ui->backdropDarkModeCheckBox->isChecked());
+  settings->setValue("backdrop_transparency",
+                     m_ui->backdropTransparencySlider->value());
   settings->endGroup();
 }
 
@@ -348,6 +363,14 @@ void AppearancePage::readSettings() {
   int index = m_ui->dialogComboBox->findData(
       settings.value("standard_dialogs").toString());
   m_ui->dialogComboBox->setCurrentIndex(qMax(index, 0));
+
+  index = m_ui->backdropTypeComboBox->findData(
+      settings.value("backdrop_type", "default").toString());
+  m_ui->backdropTypeComboBox->setCurrentIndex(qMax(index, 0));
+  m_ui->backdropDarkModeCheckBox->setChecked(
+      settings.value("backdrop_dark_mode", false).toBool());
+  m_ui->backdropTransparencySlider->setValue(
+      settings.value("backdrop_transparency", 100).toInt());
 
   settings.endGroup();
 }
