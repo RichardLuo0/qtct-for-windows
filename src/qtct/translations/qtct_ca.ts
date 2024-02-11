@@ -4,58 +4,79 @@
 <context>
     <name>AppearancePage</name>
     <message>
-        <location filename="../appearancepage.ui" line="20"/>
+        <location filename="../appearancepage.ui" line="22"/>
         <source>Style:</source>
         <translation>Estil:</translation>
     </message>
     <message>
-        <location filename="../appearancepage.ui" line="59"/>
+        <location filename="../appearancepage.ui" line="178"/>
+        <source>Backdrop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../appearancepage.ui" line="186"/>
+        <source>Type:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../appearancepage.ui" line="212"/>
+        <source>Dark mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../appearancepage.ui" line="236"/>
+        <source>Transparency:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../appearancepage.ui" line="293"/>
         <source>Preview</source>
         <translation>Vista prèvia</translation>
     </message>
     <message>
-        <location filename="../appearancepage.ui" line="69"/>
+        <location filename="../appearancepage.ui" line="303"/>
         <source>Active palette</source>
         <translation>Paleta activa</translation>
     </message>
     <message>
-        <location filename="../appearancepage.ui" line="74"/>
+        <location filename="../appearancepage.ui" line="308"/>
         <source>Inactive palette</source>
         <translation>Paleta inactiva</translation>
     </message>
     <message>
-        <location filename="../appearancepage.ui" line="79"/>
+        <location filename="../appearancepage.ui" line="313"/>
         <source>Disabled palette</source>
         <translation>Paleta desactivada</translation>
     </message>
     <message>
-        <location filename="../appearancepage.ui" line="113"/>
+        <location filename="../appearancepage.ui" line="73"/>
         <source>Palette</source>
         <translation>Paleta</translation>
     </message>
     <message>
-        <location filename="../appearancepage.ui" line="124"/>
+        <location filename="../appearancepage.ui" line="84"/>
         <location filename="../appearancepage.cpp" line="95"/>
+        <location filename="../appearancepage.cpp" line="104"/>
         <source>Default</source>
         <translation>Predeterminada</translation>
     </message>
     <message>
-        <location filename="../appearancepage.ui" line="134"/>
+        <location filename="../appearancepage.ui" line="94"/>
         <source>Custom</source>
         <translation>Personalitzada</translation>
     </message>
     <message>
-        <location filename="../appearancepage.ui" line="161"/>
+        <location filename="../appearancepage.ui" line="121"/>
         <source>Color scheme:</source>
         <translation>Esquema de colors:</translation>
     </message>
     <message>
-        <location filename="../appearancepage.ui" line="187"/>
+        <location filename="../appearancepage.ui" line="147"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../appearancepage.ui" line="218"/>
+        <location filename="../appearancepage.ui" line="48"/>
         <source>Standard dialogs:</source>
         <translation>Diàlegs estàndard:</translation>
     </message>
@@ -85,65 +106,65 @@
         <translation>Suprimeix</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="142"/>
-        <location filename="../appearancepage.cpp" line="214"/>
-        <location filename="../appearancepage.cpp" line="252"/>
+        <location filename="../appearancepage.cpp" line="163"/>
+        <location filename="../appearancepage.cpp" line="235"/>
+        <location filename="../appearancepage.cpp" line="273"/>
         <source>Enter Color Scheme Name</source>
         <translation>Introdueix el nom de l&apos;esquema de colors</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="143"/>
-        <location filename="../appearancepage.cpp" line="214"/>
-        <location filename="../appearancepage.cpp" line="252"/>
+        <location filename="../appearancepage.cpp" line="164"/>
+        <location filename="../appearancepage.cpp" line="235"/>
+        <location filename="../appearancepage.cpp" line="273"/>
         <source>File name:</source>
         <translation>Nom del fitxer:</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="149"/>
-        <location filename="../appearancepage.cpp" line="222"/>
-        <location filename="../appearancepage.cpp" line="231"/>
-        <location filename="../appearancepage.cpp" line="260"/>
+        <location filename="../appearancepage.cpp" line="170"/>
+        <location filename="../appearancepage.cpp" line="243"/>
+        <location filename="../appearancepage.cpp" line="252"/>
+        <location filename="../appearancepage.cpp" line="281"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="150"/>
-        <location filename="../appearancepage.cpp" line="223"/>
-        <location filename="../appearancepage.cpp" line="261"/>
+        <location filename="../appearancepage.cpp" line="171"/>
+        <location filename="../appearancepage.cpp" line="244"/>
+        <location filename="../appearancepage.cpp" line="282"/>
         <source>The color scheme &quot;%1&quot; already exists</source>
         <translation>Ja existeix l&apos;esquema de colors «%1»</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="167"/>
-        <location filename="../appearancepage.cpp" line="191"/>
-        <location filename="../appearancepage.cpp" line="245"/>
+        <location filename="../appearancepage.cpp" line="188"/>
+        <location filename="../appearancepage.cpp" line="212"/>
+        <location filename="../appearancepage.cpp" line="266"/>
         <source>Warning</source>
         <translation>Avís</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="168"/>
-        <location filename="../appearancepage.cpp" line="192"/>
-        <location filename="../appearancepage.cpp" line="246"/>
+        <location filename="../appearancepage.cpp" line="189"/>
+        <location filename="../appearancepage.cpp" line="213"/>
+        <location filename="../appearancepage.cpp" line="267"/>
         <source>The color scheme &quot;%1&quot; is read only</source>
         <translation>L&apos;esquema de colors «%1» és de només lectura</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="198"/>
+        <location filename="../appearancepage.cpp" line="219"/>
         <source>Confirm Remove</source>
         <translation>Confirma la supressió</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="199"/>
+        <location filename="../appearancepage.cpp" line="220"/>
         <source>Are you sure you want to remove color scheme &quot;%1&quot;?</source>
         <translation>Segur que voleu suprimir l&apos;esquema de colors «%1»?</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="215"/>
+        <location filename="../appearancepage.cpp" line="236"/>
         <source>%1 (copy)</source>
         <translation>%1 (còpia)</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="231"/>
+        <location filename="../appearancepage.cpp" line="252"/>
         <source>Unable to copy file</source>
         <translation>No es pot copiar el fitxer</translation>
     </message>
@@ -268,12 +289,12 @@
         <translation>Suprimeix fonts.conf</translation>
     </message>
     <message>
-        <location filename="../fontspage.cpp" line="114"/>
+        <location filename="../fontspage.cpp" line="118"/>
         <source>Remove Font Configuration</source>
         <translation>Suprimeix la configuració dels tipus de lletra</translation>
     </message>
     <message>
-        <location filename="../fontspage.cpp" line="115"/>
+        <location filename="../fontspage.cpp" line="119"/>
         <source>Are you sure you want to delete &lt;i&gt;%1&lt;/i&gt;?</source>
         <translation>Segur que voleu suprimir &lt;i&gt;%1&lt;/i&gt;?</translation>
     </message>
@@ -472,29 +493,28 @@
         <translation>Versió: %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="99"/>
+        <location filename="../mainwindow.cpp" line="104"/>
         <source>Warning</source>
         <translation>Avís</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="106"/>
+        <location filename="../mainwindow.cpp" line="111"/>
+        <source>The &lt;b&gt;QT_QPA_PLATFORMTHEME&lt;/b&gt; environment variable is not set (required values: &lt;b&gt;qtct&lt;/b&gt;).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="115"/>
+        <source>The &lt;b&gt;QT_QPA_PLATFORMTHEME&lt;/b&gt; environment variable is not set correctly (current value: &lt;b&gt;%1&lt;/b&gt;, required values: &lt;b&gt;qtct&lt;/b&gt;.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="122"/>
+        <source>Unable to find &lt;b&gt;qtct-style.dll&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Please remove the &lt;b&gt;QT_STYLE_OVERRIDE&lt;/b&gt; environment variable (current value: &lt;b&gt;%1&lt;/b&gt;).</source>
-        <translation>Suprimiu la variable d&apos;entorn &lt;b&gt;QT_STYLE_OVERRIDE&lt;/b&gt; (valor actual: &lt;b&gt;%1&lt;/b&gt;).</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="112"/>
-        <source>The &lt;b&gt;QT_QPA_PLATFORMTHEME&lt;/b&gt; environment variable is not set (required values: &lt;b&gt;QtCT&lt;/b&gt; or &lt;b&gt;qt5ct&lt;/b&gt;).</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="117"/>
-        <source>The &lt;b&gt;QT_QPA_PLATFORMTHEME&lt;/b&gt; environment variable is not set correctly (current value: &lt;b&gt;%1&lt;/b&gt;, required values: &lt;b&gt;QtCT&lt;/b&gt; or &lt;b&gt;qt5ct&lt;/b&gt;).</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="125"/>
-        <source>Unable to find &lt;b&gt;libQtCT-style.so&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="vanished">Suprimiu la variable d&apos;entorn &lt;b&gt;QT_STYLE_OVERRIDE&lt;/b&gt; (valor actual: &lt;b&gt;%1&lt;/b&gt;).</translation>
     </message>
     <message>
         <source>The &lt;b&gt;QT_QPA_PLATFORMTHEME&lt;/b&gt; environment variable is not set (required values: &lt;b&gt;qt6ct&lt;/b&gt; or &lt;b&gt;qt5ct&lt;/b&gt;).</source>
@@ -509,7 +529,7 @@
         <translation type="vanished">No es pot trobar &lt;b&gt;libqt6ct-style.so&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="131"/>
+        <location filename="../mainwindow.cpp" line="128"/>
         <source>The &lt;b&gt;%1&lt;/b&gt; plugin is compiled against incompatible Qt version (%2).</source>
         <translation>El complement &lt;b&gt;%1&lt;/b&gt; s&apos;ha compilat amb una versió de Qt incompatible (%2).</translation>
     </message>
@@ -552,117 +572,117 @@
         <translation>Desactivada</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="95"/>
+        <location filename="../paletteeditdialog.cpp" line="104"/>
         <source>Dark</source>
         <translation>Fosc</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="91"/>
+        <location filename="../paletteeditdialog.cpp" line="100"/>
         <source>Window text</source>
         <translation>Text de la finestra</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="92"/>
+        <location filename="../paletteeditdialog.cpp" line="101"/>
         <source>Button background</source>
         <translation>Fons del botó</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="93"/>
+        <location filename="../paletteeditdialog.cpp" line="102"/>
         <source>Bright</source>
         <translation>Brillant</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="94"/>
+        <location filename="../paletteeditdialog.cpp" line="103"/>
         <source>Less bright</source>
         <translation>Menys brillant</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="96"/>
+        <location filename="../paletteeditdialog.cpp" line="105"/>
         <source>Less dark</source>
         <translation>Menys fosc</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="101"/>
+        <location filename="../paletteeditdialog.cpp" line="110"/>
         <source>Window</source>
         <translation>Finestra</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="102"/>
+        <location filename="../paletteeditdialog.cpp" line="111"/>
         <source>Shadow</source>
         <translation>Ombra</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="98"/>
+        <location filename="../paletteeditdialog.cpp" line="107"/>
         <source>Bright text</source>
         <translation>Text brillant</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="99"/>
+        <location filename="../paletteeditdialog.cpp" line="108"/>
         <source>Button text</source>
         <translation>Text del botó</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="97"/>
+        <location filename="../paletteeditdialog.cpp" line="106"/>
         <source>Normal text</source>
         <translation>Text normal</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="100"/>
+        <location filename="../paletteeditdialog.cpp" line="109"/>
         <source>Normal background</source>
         <translation>Fons normal</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="103"/>
+        <location filename="../paletteeditdialog.cpp" line="112"/>
         <source>Highlight</source>
         <translation>Ressaltat</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="104"/>
+        <location filename="../paletteeditdialog.cpp" line="113"/>
         <source>Highlighted text</source>
         <translation>Text ressaltat</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="106"/>
+        <location filename="../paletteeditdialog.cpp" line="115"/>
         <source>Visited link</source>
         <translation>Enllaç visitat</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="108"/>
+        <location filename="../paletteeditdialog.cpp" line="117"/>
         <source>Default</source>
         <translation>Per defecte</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="109"/>
+        <location filename="../paletteeditdialog.cpp" line="118"/>
         <source>Tooltip background</source>
         <translation>Fons de l&apos;indicador de funció</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="110"/>
+        <location filename="../paletteeditdialog.cpp" line="119"/>
         <source>Tooltip text</source>
         <translation>Text de l&apos;indicador de funció</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="105"/>
+        <location filename="../paletteeditdialog.cpp" line="114"/>
         <source>Link</source>
         <translation>Enllaç</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="107"/>
+        <location filename="../paletteeditdialog.cpp" line="116"/>
         <source>Alternate background</source>
         <translation>Fons alternatiu</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="111"/>
+        <location filename="../paletteeditdialog.cpp" line="120"/>
         <source>Placeholder text</source>
         <translation>Text de farciment</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="114"/>
+        <location filename="../paletteeditdialog.cpp" line="123"/>
         <source>Accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="126"/>
+        <location filename="../paletteeditdialog.cpp" line="135"/>
         <source>Select Color</source>
         <translation>Selecciona el color</translation>
     </message>
@@ -723,7 +743,7 @@
     <message>
         <location filename="../qsspage.ui" line="66"/>
         <location filename="../qsspage.cpp" line="51"/>
-        <location filename="../qsspage.cpp" line="84"/>
+        <location filename="../qsspage.cpp" line="97"/>
         <source>Edit</source>
         <translation>Edita</translation>
     </message>
@@ -745,74 +765,74 @@
         <translation>Crea una còpia</translation>
     </message>
     <message>
-        <location filename="../qsspage.cpp" line="88"/>
+        <location filename="../qsspage.cpp" line="101"/>
         <source>View</source>
         <translation>Vista</translation>
     </message>
     <message>
-        <location filename="../qsspage.cpp" line="100"/>
-        <location filename="../qsspage.cpp" line="229"/>
+        <location filename="../qsspage.cpp" line="113"/>
+        <location filename="../qsspage.cpp" line="242"/>
         <source>File name:</source>
         <translation>Nom del fitxer:</translation>
     </message>
     <message>
-        <location filename="../qsspage.cpp" line="99"/>
-        <location filename="../qsspage.cpp" line="229"/>
+        <location filename="../qsspage.cpp" line="112"/>
+        <location filename="../qsspage.cpp" line="242"/>
         <source>Enter Style Sheet Name</source>
         <translation>Escriu el nom del full d&apos;estil</translation>
     </message>
     <message>
-        <location filename="../qsspage.cpp" line="108"/>
-        <location filename="../qsspage.cpp" line="199"/>
-        <location filename="../qsspage.cpp" line="207"/>
-        <location filename="../qsspage.cpp" line="237"/>
-        <location filename="../qsspage.cpp" line="245"/>
+        <location filename="../qsspage.cpp" line="121"/>
+        <location filename="../qsspage.cpp" line="212"/>
+        <location filename="../qsspage.cpp" line="220"/>
+        <location filename="../qsspage.cpp" line="250"/>
+        <location filename="../qsspage.cpp" line="258"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../qsspage.cpp" line="109"/>
+        <location filename="../qsspage.cpp" line="122"/>
         <source>The file &quot;%1&quot; already exists</source>
         <translation>Ja existeix el fitxer «%1»</translation>
     </message>
     <message>
-        <location filename="../qsspage.cpp" line="141"/>
+        <location filename="../qsspage.cpp" line="154"/>
         <source>Confirm Remove</source>
         <translation>Confirma la supressió</translation>
     </message>
     <message>
-        <location filename="../qsspage.cpp" line="142"/>
+        <location filename="../qsspage.cpp" line="155"/>
         <source>Are you sure you want to remove style sheet &quot;%1&quot;?</source>
         <translation>Segur que voleu suprimir el full d&apos;estil «%1»?</translation>
     </message>
     <message>
-        <location filename="../qsspage.cpp" line="192"/>
+        <location filename="../qsspage.cpp" line="205"/>
         <source>Rename Style Sheet</source>
         <translation>Canvia el nom del full d&apos;estil</translation>
     </message>
     <message>
-        <location filename="../qsspage.cpp" line="192"/>
+        <location filename="../qsspage.cpp" line="205"/>
         <source>Style sheet name:</source>
         <translation>Nom del full d&apos;estil:</translation>
     </message>
     <message>
-        <location filename="../qsspage.cpp" line="200"/>
-        <location filename="../qsspage.cpp" line="238"/>
+        <location filename="../qsspage.cpp" line="213"/>
+        <location filename="../qsspage.cpp" line="251"/>
         <source>The style sheet &quot;%1&quot; already exists</source>
         <translation>Ja existeix el full d&apos;estil «%1»</translation>
     </message>
     <message>
-        <location filename="../qsspage.cpp" line="207"/>
+        <location filename="../qsspage.cpp" line="220"/>
         <source>Unable to rename file</source>
         <translation>No es pot canviar el nom del fitxer</translation>
     </message>
     <message>
-        <location filename="../qsspage.cpp" line="230"/>
+        <location filename="../qsspage.cpp" line="243"/>
         <source>%1 (copy).qss</source>
         <translation>%1 (còpia).qss</translation>
     </message>
     <message>
-        <location filename="../qsspage.cpp" line="245"/>
+        <location filename="../qsspage.cpp" line="258"/>
         <source>Unable to copy file</source>
         <translation>No es pot copiar el fitxer</translation>
     </message>
@@ -850,12 +870,12 @@
         <translation>Força la superfície rasteritzada </translation>
     </message>
     <message>
-        <location filename="../troubleshootingpage.cpp" line="60"/>
+        <location filename="../troubleshootingpage.cpp" line="66"/>
         <source>Select Application</source>
         <translation>Selecciona l&apos;aplicació</translation>
     </message>
     <message>
-        <location filename="../troubleshootingpage.cpp" line="60"/>
+        <location filename="../troubleshootingpage.cpp" line="66"/>
         <source>Executable files (*)</source>
         <translation>Ftixers executables (*)</translation>
     </message>

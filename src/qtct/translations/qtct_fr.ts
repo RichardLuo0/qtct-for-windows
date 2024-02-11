@@ -4,58 +4,79 @@
 <context>
     <name>AppearancePage</name>
     <message>
-        <location filename="../appearancepage.ui" line="20"/>
+        <location filename="../appearancepage.ui" line="22"/>
         <source>Style:</source>
         <translation>Style :</translation>
     </message>
     <message>
-        <location filename="../appearancepage.ui" line="59"/>
+        <location filename="../appearancepage.ui" line="178"/>
+        <source>Backdrop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../appearancepage.ui" line="186"/>
+        <source>Type:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../appearancepage.ui" line="212"/>
+        <source>Dark mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../appearancepage.ui" line="236"/>
+        <source>Transparency:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../appearancepage.ui" line="293"/>
         <source>Preview</source>
         <translation>Aperçu</translation>
     </message>
     <message>
-        <location filename="../appearancepage.ui" line="69"/>
+        <location filename="../appearancepage.ui" line="303"/>
         <source>Active palette</source>
         <translation>Palette  Actif</translation>
     </message>
     <message>
-        <location filename="../appearancepage.ui" line="74"/>
+        <location filename="../appearancepage.ui" line="308"/>
         <source>Inactive palette</source>
         <translation>Palette  Inactif</translation>
     </message>
     <message>
-        <location filename="../appearancepage.ui" line="79"/>
+        <location filename="../appearancepage.ui" line="313"/>
         <source>Disabled palette</source>
         <translation>Palette  Désactivé</translation>
     </message>
     <message>
-        <location filename="../appearancepage.ui" line="113"/>
+        <location filename="../appearancepage.ui" line="73"/>
         <source>Palette</source>
         <translation>Palette</translation>
     </message>
     <message>
-        <location filename="../appearancepage.ui" line="124"/>
+        <location filename="../appearancepage.ui" line="84"/>
         <location filename="../appearancepage.cpp" line="95"/>
+        <location filename="../appearancepage.cpp" line="104"/>
         <source>Default</source>
         <translation>Défaut</translation>
     </message>
     <message>
-        <location filename="../appearancepage.ui" line="134"/>
+        <location filename="../appearancepage.ui" line="94"/>
         <source>Custom</source>
         <translation>Personnalisé</translation>
     </message>
     <message>
-        <location filename="../appearancepage.ui" line="161"/>
+        <location filename="../appearancepage.ui" line="121"/>
         <source>Color scheme:</source>
         <translation>Jeu de couleurs :</translation>
     </message>
     <message>
-        <location filename="../appearancepage.ui" line="187"/>
+        <location filename="../appearancepage.ui" line="147"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../appearancepage.ui" line="218"/>
+        <location filename="../appearancepage.ui" line="48"/>
         <source>Standard dialogs:</source>
         <translation>Boîtes de dialogue standard :</translation>
     </message>
@@ -85,65 +106,65 @@
         <translation>Supprimer</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="142"/>
-        <location filename="../appearancepage.cpp" line="214"/>
-        <location filename="../appearancepage.cpp" line="252"/>
+        <location filename="../appearancepage.cpp" line="163"/>
+        <location filename="../appearancepage.cpp" line="235"/>
+        <location filename="../appearancepage.cpp" line="273"/>
         <source>Enter Color Scheme Name</source>
         <translation>Entrer le nom du jeu de couleurs</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="143"/>
-        <location filename="../appearancepage.cpp" line="214"/>
-        <location filename="../appearancepage.cpp" line="252"/>
+        <location filename="../appearancepage.cpp" line="164"/>
+        <location filename="../appearancepage.cpp" line="235"/>
+        <location filename="../appearancepage.cpp" line="273"/>
         <source>File name:</source>
         <translation>Nom du fichier :</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="149"/>
-        <location filename="../appearancepage.cpp" line="222"/>
-        <location filename="../appearancepage.cpp" line="231"/>
-        <location filename="../appearancepage.cpp" line="260"/>
+        <location filename="../appearancepage.cpp" line="170"/>
+        <location filename="../appearancepage.cpp" line="243"/>
+        <location filename="../appearancepage.cpp" line="252"/>
+        <location filename="../appearancepage.cpp" line="281"/>
         <source>Error</source>
         <translation>Erreur</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="150"/>
-        <location filename="../appearancepage.cpp" line="223"/>
-        <location filename="../appearancepage.cpp" line="261"/>
+        <location filename="../appearancepage.cpp" line="171"/>
+        <location filename="../appearancepage.cpp" line="244"/>
+        <location filename="../appearancepage.cpp" line="282"/>
         <source>The color scheme &quot;%1&quot; already exists</source>
         <translation>Le jeu de couleurs « %1 » existe déjà</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="167"/>
-        <location filename="../appearancepage.cpp" line="191"/>
-        <location filename="../appearancepage.cpp" line="245"/>
+        <location filename="../appearancepage.cpp" line="188"/>
+        <location filename="../appearancepage.cpp" line="212"/>
+        <location filename="../appearancepage.cpp" line="266"/>
         <source>Warning</source>
         <translation>Avertissement</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="168"/>
-        <location filename="../appearancepage.cpp" line="192"/>
-        <location filename="../appearancepage.cpp" line="246"/>
+        <location filename="../appearancepage.cpp" line="189"/>
+        <location filename="../appearancepage.cpp" line="213"/>
+        <location filename="../appearancepage.cpp" line="267"/>
         <source>The color scheme &quot;%1&quot; is read only</source>
         <translation>Le jeu de couleurs « %1 » est en lecture seule</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="198"/>
+        <location filename="../appearancepage.cpp" line="219"/>
         <source>Confirm Remove</source>
         <translation>Confirmer la suppression</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="199"/>
+        <location filename="../appearancepage.cpp" line="220"/>
         <source>Are you sure you want to remove color scheme &quot;%1&quot;?</source>
         <translation>Êtes-vous sûr de vouloir supprimer le jeu de couleurs « %1 » ?</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="215"/>
+        <location filename="../appearancepage.cpp" line="236"/>
         <source>%1 (copy)</source>
         <translation>%1 (copie)</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="231"/>
+        <location filename="../appearancepage.cpp" line="252"/>
         <source>Unable to copy file</source>
         <translation>Impossible de copier le fichier</translation>
     </message>
@@ -268,12 +289,12 @@
         <translation>Supprimer  fonts.conf</translation>
     </message>
     <message>
-        <location filename="../fontspage.cpp" line="114"/>
+        <location filename="../fontspage.cpp" line="118"/>
         <source>Remove Font Configuration</source>
         <translation>Supprimer la configuration de la police</translation>
     </message>
     <message>
-        <location filename="../fontspage.cpp" line="115"/>
+        <location filename="../fontspage.cpp" line="119"/>
         <source>Are you sure you want to delete &lt;i&gt;%1&lt;/i&gt;?</source>
         <translation>Êtes-vous sûr de vouloir supprimer &lt;i&gt;%1&lt;/i&gt; ?</translation>
     </message>
@@ -472,29 +493,28 @@
         <translation>Version : %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="99"/>
+        <location filename="../mainwindow.cpp" line="104"/>
         <source>Warning</source>
         <translation>Avertissement</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="106"/>
+        <location filename="../mainwindow.cpp" line="111"/>
+        <source>The &lt;b&gt;QT_QPA_PLATFORMTHEME&lt;/b&gt; environment variable is not set (required values: &lt;b&gt;qtct&lt;/b&gt;).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="115"/>
+        <source>The &lt;b&gt;QT_QPA_PLATFORMTHEME&lt;/b&gt; environment variable is not set correctly (current value: &lt;b&gt;%1&lt;/b&gt;, required values: &lt;b&gt;qtct&lt;/b&gt;.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="122"/>
+        <source>Unable to find &lt;b&gt;qtct-style.dll&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Please remove the &lt;b&gt;QT_STYLE_OVERRIDE&lt;/b&gt; environment variable (current value: &lt;b&gt;%1&lt;/b&gt;).</source>
-        <translation>Veuillez supprimer la variable d’environnement &lt;b&gt;QT_STYLE_OVERRIDE&lt;/b&gt; (valeur actuelle : &lt;b&gt;%1&lt;/b&gt;).</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="112"/>
-        <source>The &lt;b&gt;QT_QPA_PLATFORMTHEME&lt;/b&gt; environment variable is not set (required values: &lt;b&gt;QtCT&lt;/b&gt; or &lt;b&gt;qt5ct&lt;/b&gt;).</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="117"/>
-        <source>The &lt;b&gt;QT_QPA_PLATFORMTHEME&lt;/b&gt; environment variable is not set correctly (current value: &lt;b&gt;%1&lt;/b&gt;, required values: &lt;b&gt;QtCT&lt;/b&gt; or &lt;b&gt;qt5ct&lt;/b&gt;).</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="125"/>
-        <source>Unable to find &lt;b&gt;libQtCT-style.so&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="vanished">Veuillez supprimer la variable d’environnement &lt;b&gt;QT_STYLE_OVERRIDE&lt;/b&gt; (valeur actuelle : &lt;b&gt;%1&lt;/b&gt;).</translation>
     </message>
     <message>
         <source>The &lt;b&gt;QT_QPA_PLATFORMTHEME&lt;/b&gt; environment variable is not set (required values: &lt;b&gt;qt6ct&lt;/b&gt; or &lt;b&gt;qt5ct&lt;/b&gt;).</source>
@@ -509,7 +529,7 @@
         <translation type="vanished">Impossible de trouver &lt;b&gt;libqt6ct-style.so&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="131"/>
+        <location filename="../mainwindow.cpp" line="128"/>
         <source>The &lt;b&gt;%1&lt;/b&gt; plugin is compiled against incompatible Qt version (%2).</source>
         <translation>Le plugin &lt;b&gt;%1&lt;/b&gt; est compilé avec une version Qt (%2) incompatible.</translation>
     </message>
@@ -552,117 +572,117 @@
         <translation>Désactivé</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="95"/>
+        <location filename="../paletteeditdialog.cpp" line="104"/>
         <source>Dark</source>
         <translation>Sombre</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="91"/>
+        <location filename="../paletteeditdialog.cpp" line="100"/>
         <source>Window text</source>
         <translation>Texte de la fenêtre</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="92"/>
+        <location filename="../paletteeditdialog.cpp" line="101"/>
         <source>Button background</source>
         <translation>Arrière plan du bouton</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="93"/>
+        <location filename="../paletteeditdialog.cpp" line="102"/>
         <source>Bright</source>
         <translation>Luminosité</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="94"/>
+        <location filename="../paletteeditdialog.cpp" line="103"/>
         <source>Less bright</source>
         <translation>Moins lumineux</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="96"/>
+        <location filename="../paletteeditdialog.cpp" line="105"/>
         <source>Less dark</source>
         <translation>Moins sombre</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="101"/>
+        <location filename="../paletteeditdialog.cpp" line="110"/>
         <source>Window</source>
         <translation>Fenêtre</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="102"/>
+        <location filename="../paletteeditdialog.cpp" line="111"/>
         <source>Shadow</source>
         <translation>Ombre</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="98"/>
+        <location filename="../paletteeditdialog.cpp" line="107"/>
         <source>Bright text</source>
         <translation>Texte lumineux</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="99"/>
+        <location filename="../paletteeditdialog.cpp" line="108"/>
         <source>Button text</source>
         <translation>Texte du bouton</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="97"/>
+        <location filename="../paletteeditdialog.cpp" line="106"/>
         <source>Normal text</source>
         <translation>Texte normal</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="100"/>
+        <location filename="../paletteeditdialog.cpp" line="109"/>
         <source>Normal background</source>
         <translation>Arrière plan normal</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="103"/>
+        <location filename="../paletteeditdialog.cpp" line="112"/>
         <source>Highlight</source>
         <translation>Surbrillance</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="104"/>
+        <location filename="../paletteeditdialog.cpp" line="113"/>
         <source>Highlighted text</source>
         <translation>Texte en surbrillance</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="106"/>
+        <location filename="../paletteeditdialog.cpp" line="115"/>
         <source>Visited link</source>
         <translation>Lien visité</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="108"/>
+        <location filename="../paletteeditdialog.cpp" line="117"/>
         <source>Default</source>
         <translation>Défaut</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="109"/>
+        <location filename="../paletteeditdialog.cpp" line="118"/>
         <source>Tooltip background</source>
         <translation>Arrière plan des infobulles</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="110"/>
+        <location filename="../paletteeditdialog.cpp" line="119"/>
         <source>Tooltip text</source>
         <translation>Texte des infobulles</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="105"/>
+        <location filename="../paletteeditdialog.cpp" line="114"/>
         <source>Link</source>
         <translation>Lien</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="107"/>
+        <location filename="../paletteeditdialog.cpp" line="116"/>
         <source>Alternate background</source>
         <translation>Arrière plan alternatif</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="111"/>
+        <location filename="../paletteeditdialog.cpp" line="120"/>
         <source>Placeholder text</source>
         <translation>Texte d’espace réservé</translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="114"/>
+        <location filename="../paletteeditdialog.cpp" line="123"/>
         <source>Accent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../paletteeditdialog.cpp" line="126"/>
+        <location filename="../paletteeditdialog.cpp" line="135"/>
         <source>Select Color</source>
         <translation>Sélectionner la couleur</translation>
     </message>
@@ -723,7 +743,7 @@
     <message>
         <location filename="../qsspage.ui" line="66"/>
         <location filename="../qsspage.cpp" line="51"/>
-        <location filename="../qsspage.cpp" line="84"/>
+        <location filename="../qsspage.cpp" line="97"/>
         <source>Edit</source>
         <translation>Modifier</translation>
     </message>
@@ -745,74 +765,74 @@
         <translation>Créer une copie</translation>
     </message>
     <message>
-        <location filename="../qsspage.cpp" line="88"/>
+        <location filename="../qsspage.cpp" line="101"/>
         <source>View</source>
         <translation>Aperçu</translation>
     </message>
     <message>
-        <location filename="../qsspage.cpp" line="100"/>
-        <location filename="../qsspage.cpp" line="229"/>
+        <location filename="../qsspage.cpp" line="113"/>
+        <location filename="../qsspage.cpp" line="242"/>
         <source>File name:</source>
         <translation>Nom du fichier :</translation>
     </message>
     <message>
-        <location filename="../qsspage.cpp" line="99"/>
-        <location filename="../qsspage.cpp" line="229"/>
+        <location filename="../qsspage.cpp" line="112"/>
+        <location filename="../qsspage.cpp" line="242"/>
         <source>Enter Style Sheet Name</source>
         <translation>Entrer le nom de la feuille de style</translation>
     </message>
     <message>
-        <location filename="../qsspage.cpp" line="108"/>
-        <location filename="../qsspage.cpp" line="199"/>
-        <location filename="../qsspage.cpp" line="207"/>
-        <location filename="../qsspage.cpp" line="237"/>
-        <location filename="../qsspage.cpp" line="245"/>
+        <location filename="../qsspage.cpp" line="121"/>
+        <location filename="../qsspage.cpp" line="212"/>
+        <location filename="../qsspage.cpp" line="220"/>
+        <location filename="../qsspage.cpp" line="250"/>
+        <location filename="../qsspage.cpp" line="258"/>
         <source>Error</source>
         <translation>Erreur</translation>
     </message>
     <message>
-        <location filename="../qsspage.cpp" line="109"/>
+        <location filename="../qsspage.cpp" line="122"/>
         <source>The file &quot;%1&quot; already exists</source>
         <translation>Le fichier « %1 » existe déjà</translation>
     </message>
     <message>
-        <location filename="../qsspage.cpp" line="141"/>
+        <location filename="../qsspage.cpp" line="154"/>
         <source>Confirm Remove</source>
         <translation>Confirmer la suppression</translation>
     </message>
     <message>
-        <location filename="../qsspage.cpp" line="142"/>
+        <location filename="../qsspage.cpp" line="155"/>
         <source>Are you sure you want to remove style sheet &quot;%1&quot;?</source>
         <translation>Êtes-vous sûr de vouloir supprimer la feuille de style « %1 » ?</translation>
     </message>
     <message>
-        <location filename="../qsspage.cpp" line="192"/>
+        <location filename="../qsspage.cpp" line="205"/>
         <source>Rename Style Sheet</source>
         <translation>Renommer la feuille de style</translation>
     </message>
     <message>
-        <location filename="../qsspage.cpp" line="192"/>
+        <location filename="../qsspage.cpp" line="205"/>
         <source>Style sheet name:</source>
         <translation>Nom de la feuille de style :</translation>
     </message>
     <message>
-        <location filename="../qsspage.cpp" line="200"/>
-        <location filename="../qsspage.cpp" line="238"/>
+        <location filename="../qsspage.cpp" line="213"/>
+        <location filename="../qsspage.cpp" line="251"/>
         <source>The style sheet &quot;%1&quot; already exists</source>
         <translation>La feuille de style « %1 » existe déjà</translation>
     </message>
     <message>
-        <location filename="../qsspage.cpp" line="207"/>
+        <location filename="../qsspage.cpp" line="220"/>
         <source>Unable to rename file</source>
         <translation>Impossible de renommer le fichier</translation>
     </message>
     <message>
-        <location filename="../qsspage.cpp" line="230"/>
+        <location filename="../qsspage.cpp" line="243"/>
         <source>%1 (copy).qss</source>
         <translation>%1 (copier).qss</translation>
     </message>
     <message>
-        <location filename="../qsspage.cpp" line="245"/>
+        <location filename="../qsspage.cpp" line="258"/>
         <source>Unable to copy file</source>
         <translation>Impossible de copier le fichier</translation>
     </message>
@@ -850,12 +870,12 @@
         <translation>Forcer la surface de la matrice</translation>
     </message>
     <message>
-        <location filename="../troubleshootingpage.cpp" line="60"/>
+        <location filename="../troubleshootingpage.cpp" line="66"/>
         <source>Select Application</source>
         <translation>Sélectionner l’application</translation>
     </message>
     <message>
-        <location filename="../troubleshootingpage.cpp" line="60"/>
+        <location filename="../troubleshootingpage.cpp" line="66"/>
         <source>Executable files (*)</source>
         <translation>Fichiers exécutables (*)</translation>
     </message>
