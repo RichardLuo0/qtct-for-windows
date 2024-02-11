@@ -51,9 +51,11 @@ class QtCTProxyStyle : public QProxyStyle, public QtCT::StyleInstance {
                 const QWidget *widget,
                 QStyleHintReturn *returnData) const override;
 
-  void polish(QWidget *widget) override;
   void polish(QPalette &pal) override;
-  void unpolish(QWidget *widget) override;
+  void polish(QApplication *app) override;
+  void unpolish(QApplication *app) override;
+
+  bool eventFilter(QObject *watched, QEvent *event) override;
 
  private:
   QString m_style;
@@ -62,6 +64,8 @@ class QtCTProxyStyle : public QProxyStyle, public QtCT::StyleInstance {
   int m_underlineShortcut;
 
   Backdrop backdrop;
+
+  void applyBackdrop(QWidget *widget);
 };
 
 #endif  // QTCTPROXYSTYLE_H

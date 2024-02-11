@@ -31,7 +31,9 @@
 #include <Windows.h>
 #include <dwmapi.h>
 
+#include <QApplication>
 #include <QDebug>
+#include <QEvent>
 #include <QSettings>
 #include <QStyleFactory>
 #include <QWidget>
@@ -46,6 +48,7 @@ QtCTProxyStyle::QtCTProxyStyle() {
 QHash<QString, DWM_SYSTEMBACKDROP_TYPE> backdropTypeMap = {
     {"default", DWM_SYSTEMBACKDROP_TYPE::DWMSBT_AUTO},
     {"mica", DWM_SYSTEMBACKDROP_TYPE::DWMSBT_MAINWINDOW},
+    {"mica_alt", DWM_SYSTEMBACKDROP_TYPE::DWMSBT_TABBEDWINDOW},
     {"acrylic", DWM_SYSTEMBACKDROP_TYPE::DWMSBT_TRANSIENTWINDOW}};
 
 void QtCTProxyStyle::reloadSettings() {
@@ -110,35 +113,66 @@ void QtCTProxyStyle::polish(QPalette &pal) {
   pal.setColor(QPalette::Window, windowColor);
 }
 
-QSet<HWND> enabledWindowList;
 MARGINS margins = {-1};
+int defaultDarkMode = 0;
+auto defaultBackdropType = DWM_SYSTEMBACKDROP_TYPE::DWMSBT_AUTO;
 
-void QtCTProxyStyle::polish(QWidget *widget) {
-  if (backdrop.type != DWM_SYSTEMBACKDROP_TYPE::DWMSBT_AUTO) {
-    if ((widget->windowType() == Qt::Window ||
-         widget->windowType() == Qt::Dialog) &&
-        !enabledWindowList.contains((HWND)widget->winId())) {
-      HWND hwnd = (HWND)widget->winId();
-      enabledWindowList.insert(hwnd);
-
-      qDebug() << hwnd;
-
-      DwmExtendFrameIntoClientArea(hwnd, &margins);
-      DwmSetWindowAttribute(hwnd,
-                            DWMWINDOWATTRIBUTE::DWMWA_USE_IMMERSIVE_DARK_MODE,
-                            &backdrop.darkMode, sizeof(int));
-      DwmSetWindowAttribute(hwnd, DWMWINDOWATTRIBUTE::DWMWA_SYSTEMBACKDROP_TYPE,
-                            &backdrop.type, sizeof(backdrop.type));
-    }
-  }
-
-  return QProxyStyle::polish(widget);
+bool isWindow(QWidget *widget) {
+  return (widget->windowType() == Qt::Window ||
+          widget->windowType() == Qt::Dialog) &&
+         !(widget->windowFlags() & Qt::FramelessWindowHint);
 }
 
-auto backdropAuto = DWM_SYSTEMBACKDROP_TYPE::DWMSBT_AUTO;
+void QtCTProxyStyle::polish(QApplication *app) {
+  app->installEventFilter(this);
+  return QProxyStyle::polish(app);
+}
 
-void QtCTProxyStyle::unpolish(QWidget *widget) {
+void QtCTProxyStyle::unpolish(QApplication *app) {
+  app->removeEventFilter(this);
+
+  auto *window = app->activeWindow();
+  if (window) {
+    HWND hwnd = (HWND)window->winId();
+    DwmSetWindowAttribute(hwnd,
+                          DWMWINDOWATTRIBUTE::DWMWA_USE_IMMERSIVE_DARK_MODE,
+                          &defaultDarkMode, sizeof(defaultDarkMode));
+    DwmSetWindowAttribute(hwnd, DWMWINDOWATTRIBUTE::DWMWA_SYSTEMBACKDROP_TYPE,
+                          &defaultBackdropType, sizeof(defaultBackdropType));
+  }
+
+  return QProxyStyle::unpolish(app);
+}
+
+bool QtCTProxyStyle::eventFilter(QObject *watched, QEvent *event) {
+  if (watched->isWidgetType() && event->type() == QEvent::WindowActivate) {
+    QWidget *widget = qobject_cast<QWidget *>(watched);
+    if (isWindow(widget)) {
+      applyBackdrop(widget);
+    }
+  }
+  return false;
+}
+
+void QtCTProxyStyle::applyBackdrop(QWidget *widget) {
   HWND hwnd = (HWND)widget->winId();
-  DwmSetWindowAttribute(hwnd, DWMWINDOWATTRIBUTE::DWMWA_SYSTEMBACKDROP_TYPE,
-                        &backdropAuto, sizeof(backdropAuto));
+
+  if (backdrop.type != defaultBackdropType) {
+    DwmExtendFrameIntoClientArea(hwnd, &margins);
+  }
+
+  int windowDarkMode;
+  DwmGetWindowAttribute(hwnd, DWMWINDOWATTRIBUTE::DWMWA_USE_IMMERSIVE_DARK_MODE,
+                        &windowDarkMode, sizeof(windowDarkMode));
+  if (windowDarkMode != backdrop.darkMode)
+    DwmSetWindowAttribute(hwnd,
+                          DWMWINDOWATTRIBUTE::DWMWA_USE_IMMERSIVE_DARK_MODE,
+                          &backdrop.darkMode, sizeof(backdrop.darkMode));
+
+  DWM_SYSTEMBACKDROP_TYPE windowType;
+  DwmGetWindowAttribute(hwnd, DWMWINDOWATTRIBUTE::DWMWA_SYSTEMBACKDROP_TYPE,
+                        &windowType, sizeof(windowType));
+  if (windowType != backdrop.type)
+    DwmSetWindowAttribute(hwnd, DWMWINDOWATTRIBUTE::DWMWA_SYSTEMBACKDROP_TYPE,
+                          &backdrop.type, sizeof(backdrop.type));
 }

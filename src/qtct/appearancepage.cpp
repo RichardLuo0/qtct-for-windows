@@ -103,6 +103,7 @@ AppearancePage::AppearancePage(QWidget *parent)
 
   m_ui->backdropTypeComboBox->addItem(tr("Default"), "default");
   m_ui->backdropTypeComboBox->addItem("Mica", "mica");
+  m_ui->backdropTypeComboBox->addItem("Mica Alt", "mica_alt");
   m_ui->backdropTypeComboBox->addItem("Acrylic", "acrylic");
 
   connect(m_ui->styleComboBox, &QComboBox::textActivated, this,
