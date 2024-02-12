@@ -34,9 +34,9 @@
 #include "qtct.h"
 
 struct Backdrop {
-  int type;
+  int type = -1;
   int darkMode;
-  int transparency;
+  int opacity;
 };
 
 class QtCTProxyStyle : public QProxyStyle, public QtCT::StyleInstance {

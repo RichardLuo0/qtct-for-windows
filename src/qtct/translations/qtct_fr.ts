@@ -24,11 +24,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../appearancepage.ui" line="236"/>
-        <source>Transparency:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../appearancepage.ui" line="293"/>
         <source>Preview</source>
         <translation>Aperçu</translation>
@@ -76,6 +71,11 @@
         <translation>...</translation>
     </message>
     <message>
+        <location filename="../appearancepage.ui" line="236"/>
+        <source>Opacity:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../appearancepage.ui" line="48"/>
         <source>Standard dialogs:</source>
         <translation>Boîtes de dialogue standard :</translation>
@@ -106,65 +106,65 @@
         <translation>Supprimer</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="163"/>
-        <location filename="../appearancepage.cpp" line="235"/>
-        <location filename="../appearancepage.cpp" line="273"/>
+        <location filename="../appearancepage.cpp" line="161"/>
+        <location filename="../appearancepage.cpp" line="233"/>
+        <location filename="../appearancepage.cpp" line="271"/>
         <source>Enter Color Scheme Name</source>
         <translation>Entrer le nom du jeu de couleurs</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="164"/>
-        <location filename="../appearancepage.cpp" line="235"/>
-        <location filename="../appearancepage.cpp" line="273"/>
+        <location filename="../appearancepage.cpp" line="162"/>
+        <location filename="../appearancepage.cpp" line="233"/>
+        <location filename="../appearancepage.cpp" line="271"/>
         <source>File name:</source>
         <translation>Nom du fichier :</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="170"/>
-        <location filename="../appearancepage.cpp" line="243"/>
-        <location filename="../appearancepage.cpp" line="252"/>
-        <location filename="../appearancepage.cpp" line="281"/>
+        <location filename="../appearancepage.cpp" line="168"/>
+        <location filename="../appearancepage.cpp" line="241"/>
+        <location filename="../appearancepage.cpp" line="250"/>
+        <location filename="../appearancepage.cpp" line="279"/>
         <source>Error</source>
         <translation>Erreur</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="171"/>
-        <location filename="../appearancepage.cpp" line="244"/>
-        <location filename="../appearancepage.cpp" line="282"/>
+        <location filename="../appearancepage.cpp" line="169"/>
+        <location filename="../appearancepage.cpp" line="242"/>
+        <location filename="../appearancepage.cpp" line="280"/>
         <source>The color scheme &quot;%1&quot; already exists</source>
         <translation>Le jeu de couleurs « %1 » existe déjà</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="188"/>
-        <location filename="../appearancepage.cpp" line="212"/>
-        <location filename="../appearancepage.cpp" line="266"/>
+        <location filename="../appearancepage.cpp" line="186"/>
+        <location filename="../appearancepage.cpp" line="210"/>
+        <location filename="../appearancepage.cpp" line="264"/>
         <source>Warning</source>
         <translation>Avertissement</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="189"/>
-        <location filename="../appearancepage.cpp" line="213"/>
-        <location filename="../appearancepage.cpp" line="267"/>
+        <location filename="../appearancepage.cpp" line="187"/>
+        <location filename="../appearancepage.cpp" line="211"/>
+        <location filename="../appearancepage.cpp" line="265"/>
         <source>The color scheme &quot;%1&quot; is read only</source>
         <translation>Le jeu de couleurs « %1 » est en lecture seule</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="219"/>
+        <location filename="../appearancepage.cpp" line="217"/>
         <source>Confirm Remove</source>
         <translation>Confirmer la suppression</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="220"/>
+        <location filename="../appearancepage.cpp" line="218"/>
         <source>Are you sure you want to remove color scheme &quot;%1&quot;?</source>
         <translation>Êtes-vous sûr de vouloir supprimer le jeu de couleurs « %1 » ?</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="236"/>
+        <location filename="../appearancepage.cpp" line="234"/>
         <source>%1 (copy)</source>
         <translation>%1 (copie)</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="252"/>
+        <location filename="../appearancepage.cpp" line="250"/>
         <source>Unable to copy file</source>
         <translation>Impossible de copier le fichier</translation>
     </message>
@@ -278,10 +278,6 @@
         <location filename="../fontspage.ui" line="122"/>
         <source>Create fonts.conf</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Create  fonts.conf</source>
-        <translation type="vanished">Créer  fonts.conf</translation>
     </message>
     <message>
         <location filename="../fontspage.ui" line="129"/>
@@ -511,22 +507,6 @@
         <location filename="../mainwindow.cpp" line="122"/>
         <source>Unable to find &lt;b&gt;qtct-style.dll&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Please remove the &lt;b&gt;QT_STYLE_OVERRIDE&lt;/b&gt; environment variable (current value: &lt;b&gt;%1&lt;/b&gt;).</source>
-        <translation type="vanished">Veuillez supprimer la variable d’environnement &lt;b&gt;QT_STYLE_OVERRIDE&lt;/b&gt; (valeur actuelle : &lt;b&gt;%1&lt;/b&gt;).</translation>
-    </message>
-    <message>
-        <source>The &lt;b&gt;QT_QPA_PLATFORMTHEME&lt;/b&gt; environment variable is not set (required values: &lt;b&gt;qt6ct&lt;/b&gt; or &lt;b&gt;qt5ct&lt;/b&gt;).</source>
-        <translation type="vanished">La variable d’environnement &lt;b&gt;QT_QPA_PLATFORMTHEME&lt;/b&gt; n’est pas définie (valeurs requises : &lt;b&gt;qt6ct&lt;/b&gt; ou &lt;b&gt;qt5ct&lt;/b&gt;).</translation>
-    </message>
-    <message>
-        <source>The &lt;b&gt;QT_QPA_PLATFORMTHEME&lt;/b&gt; environment variable is not set correctly (current value: &lt;b&gt;%1&lt;/b&gt;, required values: &lt;b&gt;qt6ct&lt;/b&gt; or &lt;b&gt;qt5ct&lt;/b&gt;).</source>
-        <translation type="vanished">La variable d’environnement &lt;b&gt;QT_QPA_PLATFORMTHEME&lt;/b&gt; n’est pas définie correctement (valeur actuelle : &lt;b&gt;%1&lt;/b&gt;, valeurs requises : &lt;b&gt;qt6ct&lt;/b&gt; ou &lt;b&gt;qt5ct&lt;/b&gt;).</translation>
-    </message>
-    <message>
-        <source>Unable to find &lt;b&gt;libqt6ct-style.so&lt;/b&gt;</source>
-        <translation type="vanished">Impossible de trouver &lt;b&gt;libqt6ct-style.so&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="128"/>

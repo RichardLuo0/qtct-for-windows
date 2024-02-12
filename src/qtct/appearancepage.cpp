@@ -102,6 +102,7 @@ AppearancePage::AppearancePage(QWidget *parent)
     m_ui->dialogComboBox->addItem("XDG Desktop Portal", "xdgdesktopportal");
 
   m_ui->backdropTypeComboBox->addItem(tr("Default"), "default");
+  m_ui->backdropTypeComboBox->addItem("None", "none");
   m_ui->backdropTypeComboBox->addItem("Mica", "mica");
   m_ui->backdropTypeComboBox->addItem("Mica Alt", "mica_alt");
   m_ui->backdropTypeComboBox->addItem("Acrylic", "acrylic");
@@ -110,11 +111,12 @@ AppearancePage::AppearancePage(QWidget *parent)
           &AppearancePage::onStyleComboBoxTextActivated);
   connect(m_ui->colorSchemeComboBox, &QComboBox::activated, this,
           &AppearancePage::onColorSchemeComboBoxActivated);
-  connect(
-      m_ui->backdropTransparencySlider, &QSlider::valueChanged, this,
-      [&](int value) {
-        m_ui->backdropTransparencyLabel->setText(QString::number(value) + "%");
-      });
+  connect(m_ui->backdropOpacitySlider, &QSlider::valueChanged, this,
+          [&](int value) {
+            m_ui->backdropOpacityLabel->setText(QString::number(value) + "%");
+          });
+  connect(m_ui->backdropTypeComboBox, &QComboBox::currentIndexChanged, this,
+          &AppearancePage::onBackdropTypeComboBoxCurrentIndexChanged);
 
   readSettings();
 }
@@ -137,8 +139,7 @@ void AppearancePage::writeSettings(QSettings *settings) {
                      m_ui->backdropTypeComboBox->currentData().toString());
   settings->setValue("backdrop_dark_mode",
                      m_ui->backdropDarkModeCheckBox->isChecked());
-  settings->setValue("backdrop_transparency",
-                     m_ui->backdropTransparencySlider->value());
+  settings->setValue("backdrop_opacity", m_ui->backdropOpacitySlider->value());
   settings->endGroup();
 }
 
@@ -157,6 +158,11 @@ void AppearancePage::onColorSchemeComboBoxActivated(int) {
   m_customPalette = QtCT::loadColorScheme(
       m_ui->colorSchemeComboBox->currentData().toString());
   updatePalette();
+}
+
+void AppearancePage::onBackdropTypeComboBoxCurrentIndexChanged(int) {
+  m_ui->backdropSettings->setEnabled(
+      m_ui->backdropTypeComboBox->currentData() != "default");
 }
 
 void AppearancePage::createColorScheme() {
@@ -370,8 +376,8 @@ void AppearancePage::readSettings() {
   m_ui->backdropTypeComboBox->setCurrentIndex(qMax(index, 0));
   m_ui->backdropDarkModeCheckBox->setChecked(
       settings.value("backdrop_dark_mode", false).toBool());
-  m_ui->backdropTransparencySlider->setValue(
-      settings.value("backdrop_transparency", 100).toInt());
+  m_ui->backdropOpacitySlider->setValue(
+      settings.value("backdrop_opacity", 100).toInt());
 
   settings.endGroup();
 }

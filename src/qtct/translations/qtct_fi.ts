@@ -24,11 +24,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../appearancepage.ui" line="236"/>
-        <source>Transparency:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../appearancepage.ui" line="293"/>
         <source>Preview</source>
         <translation>Esikatselu</translation>
@@ -76,6 +71,11 @@
         <translation>...</translation>
     </message>
     <message>
+        <location filename="../appearancepage.ui" line="236"/>
+        <source>Opacity:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../appearancepage.ui" line="48"/>
         <source>Standard dialogs:</source>
         <translation>Tavalliset valintaikkunat:</translation>
@@ -106,65 +106,65 @@
         <translation>Poista</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="163"/>
-        <location filename="../appearancepage.cpp" line="235"/>
-        <location filename="../appearancepage.cpp" line="273"/>
+        <location filename="../appearancepage.cpp" line="161"/>
+        <location filename="../appearancepage.cpp" line="233"/>
+        <location filename="../appearancepage.cpp" line="271"/>
         <source>Enter Color Scheme Name</source>
         <translation>Syötä väriskeeman nimi</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="164"/>
-        <location filename="../appearancepage.cpp" line="235"/>
-        <location filename="../appearancepage.cpp" line="273"/>
+        <location filename="../appearancepage.cpp" line="162"/>
+        <location filename="../appearancepage.cpp" line="233"/>
+        <location filename="../appearancepage.cpp" line="271"/>
         <source>File name:</source>
         <translation>Tiedostonimi:</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="170"/>
-        <location filename="../appearancepage.cpp" line="243"/>
-        <location filename="../appearancepage.cpp" line="252"/>
-        <location filename="../appearancepage.cpp" line="281"/>
+        <location filename="../appearancepage.cpp" line="168"/>
+        <location filename="../appearancepage.cpp" line="241"/>
+        <location filename="../appearancepage.cpp" line="250"/>
+        <location filename="../appearancepage.cpp" line="279"/>
         <source>Error</source>
         <translation>Virhe</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="171"/>
-        <location filename="../appearancepage.cpp" line="244"/>
-        <location filename="../appearancepage.cpp" line="282"/>
+        <location filename="../appearancepage.cpp" line="169"/>
+        <location filename="../appearancepage.cpp" line="242"/>
+        <location filename="../appearancepage.cpp" line="280"/>
         <source>The color scheme &quot;%1&quot; already exists</source>
         <translation>Väriskeema &quot;%1&quot; on jo olemassa</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="188"/>
-        <location filename="../appearancepage.cpp" line="212"/>
-        <location filename="../appearancepage.cpp" line="266"/>
+        <location filename="../appearancepage.cpp" line="186"/>
+        <location filename="../appearancepage.cpp" line="210"/>
+        <location filename="../appearancepage.cpp" line="264"/>
         <source>Warning</source>
         <translation>Varoitus</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="189"/>
-        <location filename="../appearancepage.cpp" line="213"/>
-        <location filename="../appearancepage.cpp" line="267"/>
+        <location filename="../appearancepage.cpp" line="187"/>
+        <location filename="../appearancepage.cpp" line="211"/>
+        <location filename="../appearancepage.cpp" line="265"/>
         <source>The color scheme &quot;%1&quot; is read only</source>
         <translation>Väriskeema &quot;%1&quot; on vain luettavissa</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="219"/>
+        <location filename="../appearancepage.cpp" line="217"/>
         <source>Confirm Remove</source>
         <translation>Vahvista poistaminen</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="220"/>
+        <location filename="../appearancepage.cpp" line="218"/>
         <source>Are you sure you want to remove color scheme &quot;%1&quot;?</source>
         <translation>Oletko varma, että haluat poistaa väriskeeman &quot;%1&quot;?</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="236"/>
+        <location filename="../appearancepage.cpp" line="234"/>
         <source>%1 (copy)</source>
         <translation>%1 (kopio)</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="252"/>
+        <location filename="../appearancepage.cpp" line="250"/>
         <source>Unable to copy file</source>
         <translation>Tiedostoa ei voi kopioida</translation>
     </message>
@@ -278,10 +278,6 @@
         <location filename="../fontspage.ui" line="122"/>
         <source>Create fonts.conf</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Create  fonts.conf</source>
-        <translation type="vanished">Luo  fonts.conf</translation>
     </message>
     <message>
         <location filename="../fontspage.ui" line="129"/>
@@ -511,10 +507,6 @@
         <location filename="../mainwindow.cpp" line="122"/>
         <source>Unable to find &lt;b&gt;qtct-style.dll&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Please remove the &lt;b&gt;QT_STYLE_OVERRIDE&lt;/b&gt; environment variable (current value: &lt;b&gt;%1&lt;/b&gt;).</source>
-        <translation type="vanished">Ole hyvä ja poista &lt;b&gt;QT_STYLE_OVERRIDE&lt;/b&gt;-ympäristömuuttuja (nykyinen arvo: &lt;b&gt;%1&lt;/b&gt;).</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="128"/>

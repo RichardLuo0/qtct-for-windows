@@ -45,8 +45,9 @@ QtCTProxyStyle::QtCTProxyStyle() {
   QtCTProxyStyle::reloadSettings();
 }
 
-QHash<QString, DWM_SYSTEMBACKDROP_TYPE> backdropTypeMap = {
-    {"default", DWM_SYSTEMBACKDROP_TYPE::DWMSBT_AUTO},
+QHash<QString, int> backdropTypeMap = {
+    {"default", -1},
+    {"none", DWM_SYSTEMBACKDROP_TYPE::DWMSBT_NONE},
     {"mica", DWM_SYSTEMBACKDROP_TYPE::DWMSBT_MAINWINDOW},
     {"mica_alt", DWM_SYSTEMBACKDROP_TYPE::DWMSBT_TABBEDWINDOW},
     {"acrylic", DWM_SYSTEMBACKDROP_TYPE::DWMSBT_TRANSIENTWINDOW}};
@@ -82,7 +83,7 @@ void QtCTProxyStyle::reloadSettings() {
   backdrop.type =
       backdropTypeMap[settings.value("backdrop_type", "default").toString()];
   backdrop.darkMode = settings.value("backdrop_dark_mode", false).toBool();
-  backdrop.transparency = settings.value("backdrop_transparency", 100).toInt();
+  backdrop.opacity = settings.value("backdrop_opacity", 100).toInt();
 }
 
 QtCTProxyStyle::~QtCTProxyStyle() { QtCT::unregisterStyleInstance(this); }
@@ -108,9 +109,11 @@ int QtCTProxyStyle::styleHint(QStyle::StyleHint hint,
 
 void QtCTProxyStyle::polish(QPalette &pal) {
   QProxyStyle::polish(pal);
-  QColor windowColor = QColor(pal.color(QPalette::Window));
-  windowColor.setAlphaF(backdrop.transparency / 100.);
-  pal.setColor(QPalette::Window, windowColor);
+  if (backdrop.type != -1) {
+    QColor windowColor = QColor(pal.color(QPalette::Window));
+    windowColor.setAlphaF(backdrop.opacity / 100.);
+    pal.setColor(QPalette::Window, windowColor);
+  }
 }
 
 MARGINS margins = {-1};
@@ -124,30 +127,30 @@ bool isWindow(QWidget *widget) {
 }
 
 void QtCTProxyStyle::polish(QApplication *app) {
-  app->installEventFilter(this);
+  if (backdrop.type != -1) app->installEventFilter(this);
   return QProxyStyle::polish(app);
 }
 
 void QtCTProxyStyle::unpolish(QApplication *app) {
-  app->removeEventFilter(this);
-
-  auto *window = app->activeWindow();
-  if (window) {
-    HWND hwnd = (HWND)window->winId();
-    DwmSetWindowAttribute(hwnd,
-                          DWMWINDOWATTRIBUTE::DWMWA_USE_IMMERSIVE_DARK_MODE,
-                          &defaultDarkMode, sizeof(defaultDarkMode));
-    DwmSetWindowAttribute(hwnd, DWMWINDOWATTRIBUTE::DWMWA_SYSTEMBACKDROP_TYPE,
-                          &defaultBackdropType, sizeof(defaultBackdropType));
+  if (backdrop.type != -1) {
+    app->removeEventFilter(this);
+    auto *window = app->activeWindow();
+    if (window) {
+      HWND hwnd = (HWND)window->winId();
+      DwmSetWindowAttribute(hwnd,
+                            DWMWINDOWATTRIBUTE::DWMWA_USE_IMMERSIVE_DARK_MODE,
+                            &defaultDarkMode, sizeof(defaultDarkMode));
+      DwmSetWindowAttribute(hwnd, DWMWINDOWATTRIBUTE::DWMWA_SYSTEMBACKDROP_TYPE,
+                            &defaultBackdropType, sizeof(defaultBackdropType));
+    }
   }
-
   return QProxyStyle::unpolish(app);
 }
 
 bool QtCTProxyStyle::eventFilter(QObject *watched, QEvent *event) {
   if (watched->isWidgetType() && event->type() == QEvent::WindowActivate) {
     QWidget *widget = qobject_cast<QWidget *>(watched);
-    if (isWindow(widget)) {
+    if (backdrop.type != -1 && isWindow(widget)) {
       applyBackdrop(widget);
     }
   }

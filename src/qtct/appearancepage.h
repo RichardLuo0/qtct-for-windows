@@ -51,6 +51,7 @@ class AppearancePage : public TabPage {
  private slots:
   void onStyleComboBoxTextActivated(const QString &text);
   void onColorSchemeComboBoxActivated(int);
+  void onBackdropTypeComboBoxCurrentIndexChanged(int);
   void createColorScheme();
   void changeColorScheme();
   void removeColorScheme();

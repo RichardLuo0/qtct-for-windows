@@ -24,11 +24,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../appearancepage.ui" line="236"/>
-        <source>Transparency:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../appearancepage.ui" line="293"/>
         <source>Preview</source>
         <translation>Anteprima</translation>
@@ -76,6 +71,11 @@
         <translation>...</translation>
     </message>
     <message>
+        <location filename="../appearancepage.ui" line="236"/>
+        <source>Opacity:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../appearancepage.ui" line="48"/>
         <source>Standard dialogs:</source>
         <translation>Finestre di dialogo standard:</translation>
@@ -106,65 +106,65 @@
         <translation>Rimuovi</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="163"/>
-        <location filename="../appearancepage.cpp" line="235"/>
-        <location filename="../appearancepage.cpp" line="273"/>
+        <location filename="../appearancepage.cpp" line="161"/>
+        <location filename="../appearancepage.cpp" line="233"/>
+        <location filename="../appearancepage.cpp" line="271"/>
         <source>Enter Color Scheme Name</source>
         <translation>Inserisci nome dello schema colori</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="164"/>
-        <location filename="../appearancepage.cpp" line="235"/>
-        <location filename="../appearancepage.cpp" line="273"/>
+        <location filename="../appearancepage.cpp" line="162"/>
+        <location filename="../appearancepage.cpp" line="233"/>
+        <location filename="../appearancepage.cpp" line="271"/>
         <source>File name:</source>
         <translation>Nome file:</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="170"/>
-        <location filename="../appearancepage.cpp" line="243"/>
-        <location filename="../appearancepage.cpp" line="252"/>
-        <location filename="../appearancepage.cpp" line="281"/>
+        <location filename="../appearancepage.cpp" line="168"/>
+        <location filename="../appearancepage.cpp" line="241"/>
+        <location filename="../appearancepage.cpp" line="250"/>
+        <location filename="../appearancepage.cpp" line="279"/>
         <source>Error</source>
         <translation>Errore</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="171"/>
-        <location filename="../appearancepage.cpp" line="244"/>
-        <location filename="../appearancepage.cpp" line="282"/>
+        <location filename="../appearancepage.cpp" line="169"/>
+        <location filename="../appearancepage.cpp" line="242"/>
+        <location filename="../appearancepage.cpp" line="280"/>
         <source>The color scheme &quot;%1&quot; already exists</source>
         <translation>Lo schema colori &quot;%1&quot; è già esistente</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="188"/>
-        <location filename="../appearancepage.cpp" line="212"/>
-        <location filename="../appearancepage.cpp" line="266"/>
+        <location filename="../appearancepage.cpp" line="186"/>
+        <location filename="../appearancepage.cpp" line="210"/>
+        <location filename="../appearancepage.cpp" line="264"/>
         <source>Warning</source>
         <translation>Attenzione</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="189"/>
-        <location filename="../appearancepage.cpp" line="213"/>
-        <location filename="../appearancepage.cpp" line="267"/>
+        <location filename="../appearancepage.cpp" line="187"/>
+        <location filename="../appearancepage.cpp" line="211"/>
+        <location filename="../appearancepage.cpp" line="265"/>
         <source>The color scheme &quot;%1&quot; is read only</source>
         <translation>Lo schema colori &quot;%1&quot; è in sola lettura</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="219"/>
+        <location filename="../appearancepage.cpp" line="217"/>
         <source>Confirm Remove</source>
         <translation>Conferma rimozione</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="220"/>
+        <location filename="../appearancepage.cpp" line="218"/>
         <source>Are you sure you want to remove color scheme &quot;%1&quot;?</source>
         <translation>Sei sicuro di voler rimuovere lo schema colori &quot;%1&quot;?</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="236"/>
+        <location filename="../appearancepage.cpp" line="234"/>
         <source>%1 (copy)</source>
         <translation>%1 (copia)</translation>
     </message>
     <message>
-        <location filename="../appearancepage.cpp" line="252"/>
+        <location filename="../appearancepage.cpp" line="250"/>
         <source>Unable to copy file</source>
         <translation>Impossibile copiare il file</translation>
     </message>
@@ -278,10 +278,6 @@
         <location filename="../fontspage.ui" line="122"/>
         <source>Create fonts.conf</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Create  fonts.conf</source>
-        <translation type="vanished">Crea  fonts.conf</translation>
     </message>
     <message>
         <location filename="../fontspage.ui" line="129"/>
