@@ -90,7 +90,7 @@ class QtCTPlatformTheme : public QObject, public QPlatformTheme {
 #endif
   QString loadStyleSheets(const QStringList &paths);
   QString m_style, m_iconTheme, m_userStyleSheet, m_prevStyleSheet;
-  QVariant m_palette;
+  QPalette m_palette;
   bool m_fontOverride = false;
   QFont m_generalFont, m_fixedFont;
   int m_doubleClickInterval;

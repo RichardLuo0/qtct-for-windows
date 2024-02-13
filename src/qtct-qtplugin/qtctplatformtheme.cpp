@@ -112,9 +112,9 @@ QPlatformSystemTrayIcon *QtCTPlatformTheme::createPlatformSystemTrayIcon()
 }
 
 const QPalette *QtCTPlatformTheme::palette(QPlatformTheme::Palette type) const {
-  return (m_usePalette && m_palette.isValid())
-             ? new QPalette(m_palette.value<QPalette>())
-             : winTheme->palette(type);
+  // https://github.com/qt/qtbase/blob/3828b30951e3bdaa8227d0ade14725de04593671/src/widgets/styles/qstyle.cpp#L2301
+  return (m_usePalette && m_style != "windowsvista") ? &m_palette
+                                                     : winTheme->palette(type);
 }
 
 const QFont *QtCTPlatformTheme::font(QPlatformTheme::Font type) const {
@@ -205,8 +205,7 @@ void QtCTPlatformTheme::applySettings() {
       QtCT::reloadStyleInstanceSettings();
     }
 
-    if (m_update && m_usePalette && !m_palette.isValid())
-      qApp->setPalette(m_palette.value<QPalette>());
+    if (m_update && m_usePalette) qApp->setPalette(m_palette);
 
     if (m_userStyleSheet != m_prevStyleSheet) {
       // prepend our stylesheet to that of the application
@@ -231,8 +230,7 @@ void QtCTPlatformTheme::applySettings() {
     for (QWidget *w : qApp->allWidgets()) {
       QEvent e(QEvent::ThemeChange);
       QApplication::sendEvent(w, &e);
-      if (m_usePalette && !m_palette.isValid())
-        w->setPalette(m_palette.value<QPalette>());
+      if (m_usePalette) w->setPalette(m_palette);
     }
   }
 #endif
@@ -279,8 +277,11 @@ void QtCTPlatformTheme::readSettings() {
       settings.value("custom_palette", false).toBool()) {
     schemePath = QtCT::resolvePath(schemePath);
     m_palette = QtCT::loadColorScheme(schemePath);
-  } else {
-    m_palette.clear();
+  } else if (m_style == "windowsvista")
+    m_palette = *winTheme->palette();
+  else {
+    // https://github.com/qt/qtbase/blob/3828b30951e3bdaa8227d0ade14725de04593671/src/widgets/styles/qstyle.cpp#L2301
+    m_palette = QStyleFactory::create(m_style)->standardPalette();
   }
   m_iconTheme = settings.value("icon_theme").toString();
   // load dialogs
