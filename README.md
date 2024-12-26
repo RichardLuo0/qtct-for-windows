@@ -14,7 +14,7 @@ For kvantum, you can use [kvantum-for-windows](https://github.com/RichardLuo0/kv
 * Download the latest release and extract in a folder.
 * Set env variable `QT_QPA_PLATFORMTHEME=qtct`.
 * Set env variable `QT_STYLE_OVERRIDE=qtct-style`.
-* Or Go to each app path and create a soft link from `<qtct path>/styles` to `<your app path>\styles` and for `platformthemes` as well. (Instead setting env variable `QT_PLUGIN_PATH=<path to your qtct>;` has the same effect. However, doing so overwrite the app custom plugin path.)
+* Go to each app root folder and create a soft link from `<qtct path>/styles` to `<your app path>\styles` and for `platformthemes` as well. (Instead setting env variable `QT_PLUGIN_PATH=<path to your qtct>;` has the same effect. However, doing so overwrite the app custom plugin path.)
 * **Notice: if selected style is not applied to certain apps, its most probably that the app hardcoded its own style. You will have to compile from source, download the source, set the content of `src\qtct-style-hack\qtct.json` to the style that the application is using, compile and replace the original style with `styles/qtct-style-hack.dll` in the app directory styles. (My release version contains hack for breeze theme, which is default to kde apps)**
 
 ## Files and Directories
