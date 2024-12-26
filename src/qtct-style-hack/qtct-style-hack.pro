@@ -6,7 +6,7 @@ QT += widgets
 
 CONFIG += plugin
 
-target.path = $$PLUGINDIR/styles
+target.path = $$PLUGINDIR/styles-hack
 INSTALLS += target
 
 QTCT_STYLE = ../qtct-style
