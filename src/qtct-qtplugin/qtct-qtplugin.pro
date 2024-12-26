@@ -19,7 +19,8 @@ OTHER_FILES += qtct.json
 INCLUDEPATH += ../
 
 HEADERS += \
-    qtctplatformtheme.h
+    qtctplatformtheme.h \
+    qwindowstheme.h
 
 target.path = $$PLUGINDIR/platformthemes
 INSTALLS += target

@@ -92,7 +92,8 @@ QString QtCT::userColorSchemePath() {
   return configPath() + QLatin1String("/colors");
 }
 
-QString QtCT::resolvePath(const QString &path) {
+QString QtCT::resolvePath(
+    const QString &path) {
   QString tmp = path;
   tmp.replace("~",
               QStandardPaths::writableLocation(QStandardPaths::HomeLocation));
@@ -112,7 +113,8 @@ QString QtCT::resolvePath(const QString &path) {
   return tmp;
 }
 
-QPalette QtCT::loadColorScheme(const QString &filePath) {
+QPalette QtCT::loadColorScheme(
+    const QString &filePath, const QPalette &fallback) {
   QPalette customPalette;
   QSettings settings(filePath, QSettings::IniFormat);
   settings.beginGroup("ColorScheme");
@@ -142,15 +144,20 @@ QPalette QtCT::loadColorScheme(const QString &filePath) {
       customPalette.setColor(QPalette::Disabled, role,
                              QColor(disabledColors.at(i)));
     }
+  } else {
+    customPalette = fallback;
   }
+
   return customPalette;
 }
 
-void QtCT::registerStyleInstance(QtCT::StyleInstance *instance) {
+void QtCT::registerStyleInstance(
+    QtCT::StyleInstance *instance) {
   styleInstances.insert(instance);
 }
 
-void QtCT::unregisterStyleInstance(QtCT::StyleInstance *instance) {
+void QtCT::unregisterStyleInstance(
+    QtCT::StyleInstance *instance) {
   styleInstances.remove(instance);
 }
 
@@ -162,7 +169,8 @@ void QtCT::reloadStyleInstanceSettings() {
 #include <QTextCodec>
 #endif
 
-void QtCT::qt5QSettingsCompatible(QSettings &settings) {
+void QtCT::qt5QSettingsCompatible(
+    QSettings &settings) {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
   settings.setIniCodec(QTextCodec::codecForName("UTF-8"));
 #else
@@ -177,7 +185,8 @@ QHash<QString, QFont::Weight> openTypeWeightMap{
     {"700", QFont::Bold},   {"800", QFont::ExtraBold},
     {"900", QFont::Black}};
 
-QFont QtCT::qt5FontCompatible(const QString &fontAttrStr) {
+QFont QtCT::qt5FontCompatible(
+    const QString &fontAttrStr) {
   QFont font;
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
   QStringList fontAttrList = fontAttrStr.split(",");

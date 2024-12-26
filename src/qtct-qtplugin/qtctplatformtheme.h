@@ -29,10 +29,6 @@
 #ifndef QTCTPLATFORMTHEME_H
 #define QTCTPLATFORMTHEME_H
 
-#include <private/qguiapplication_p.h>
-#include <qpa/qplatformintegration.h>
-#include <qpa/qplatformtheme.h>
-
 #include <QFileInfo>
 #include <QFont>
 #include <QIcon>
@@ -41,40 +37,31 @@
 #include <QPalette>
 #include <QScopedPointer>
 
-Q_DECLARE_LOGGING_CATEGORY(lqtct)
+#include "qwindowstheme.h"
 
-class QtCTPlatformTheme : public QObject, public QPlatformTheme {
+Q_DECLARE_LOGGING_CATEGORY(
+    lqtct)
+
+class QtCTPlatformTheme : public QObject, public QWindowsTheme {
   Q_OBJECT
  public:
   QtCTPlatformTheme();
 
-  virtual ~QtCTPlatformTheme();
+  ~QtCTPlatformTheme() override;
 
-  virtual QPlatformMenuItem *createPlatformMenuItem() const override;
-  virtual QPlatformMenu *createPlatformMenu() const override;
-  virtual QPlatformMenuBar *createPlatformMenuBar() const override;
-  virtual void showPlatformMenuBar() override;
-  virtual bool usePlatformNativeDialog(DialogType type) const override;
-  virtual QPlatformDialogHelper *createPlatformDialogHelper(
+  bool usePlatformNativeDialog(DialogType type) const override;
+  QPlatformDialogHelper *createPlatformDialogHelper(
       DialogType type) const override;
-  virtual QPlatformSystemTrayIcon *createPlatformSystemTrayIcon()
-      const override;
-  virtual const QPalette *palette(Palette type = SystemPalette) const override;
-  virtual const QFont *font(Font type = SystemFont) const override;
-  virtual QVariant themeHint(ThemeHint hint) const override;
-  virtual QIcon fileIcon(
-      const QFileInfo &fileInfo,
-      QPlatformTheme::IconOptions iconOptions = {}) const override;
-  virtual QPixmap standardPixmap(StandardPixmap sp,
-                                 const QSizeF &size) const override;
-  // virtual QPixmap fileIconPixmap(const QFileInfo &fileInfo, const QSizeF
-  // &size,
-  //                                QPlatformTheme::IconOptions iconOptions = 0)
-  //                                const;
 
-  virtual QIconEngine *createIconEngine(const QString &iconName) const override;
-  // virtual QList<QKeySequence> keyBindings(QKeySequence::StandardKey key)
-  // const; virtual QString standardButtonText(int button) const;
+  const QPalette *palette(Palette type = SystemPalette) const override;
+
+  const QFont *font(Font type = SystemFont) const override;  // cpp
+
+  QVariant themeHint(ThemeHint hint) const override;  // cpp
+
+  QIcon fileIcon(
+      const QFileInfo &fileInfo,
+      QPlatformTheme::IconOptions iconOptions = {}) const override;  // cpp
 
  private slots:
   void applySettings();
@@ -90,7 +77,7 @@ class QtCTPlatformTheme : public QObject, public QPlatformTheme {
 #endif
   QString loadStyleSheets(const QStringList &paths);
   QString m_style, m_iconTheme, m_userStyleSheet, m_prevStyleSheet;
-  QPalette m_palette;
+  std::unique_ptr<QPalette> m_palette;
   bool m_fontOverride = false;
   QFont m_generalFont, m_fixedFont;
   int m_doubleClickInterval;
@@ -105,10 +92,9 @@ class QtCTPlatformTheme : public QObject, public QPlatformTheme {
   bool m_showShortcutsInContextMenus = false;
   bool m_isIgnored = false;
   QScopedPointer<QPlatformTheme> m_theme;
-
-  QScopedPointer<QPlatformTheme> winTheme;
 };
 
-Q_DECLARE_LOGGING_CATEGORY(lqtct)
+Q_DECLARE_LOGGING_CATEGORY(
+    lqtct)
 
 #endif  // QTCTPLATFORMTHEME_H

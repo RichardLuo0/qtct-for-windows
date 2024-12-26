@@ -52,15 +52,12 @@
 #include "qtct.h"
 #include "qtctplatformtheme.h"
 
-Q_LOGGING_CATEGORY(lqtct, "qtct", QtWarningMsg)
+Q_LOGGING_CATEGORY(
+    lqtct, "qtct", QtWarningMsg)
 
 // QT_QPA_PLATFORMTHEME=qtct
 
 QtCTPlatformTheme::QtCTPlatformTheme() {
-  winTheme.reset(
-      QGuiApplicationPrivate::platform_integration->createPlatformTheme(
-          "windows"));
-
   QtCT::initConfig();
   if (QGuiApplication::desktopSettingsAware()) {
     readSettings();
@@ -79,55 +76,38 @@ QtCTPlatformTheme::QtCTPlatformTheme() {
 
 QtCTPlatformTheme::~QtCTPlatformTheme() {}
 
-QPlatformMenuItem *QtCTPlatformTheme::createPlatformMenuItem() const {
-  return winTheme->createPlatformMenuItem();
-}
-
-QPlatformMenu *QtCTPlatformTheme::createPlatformMenu() const {
-  return winTheme->createPlatformMenu();
-}
-
-QPlatformMenuBar *QtCTPlatformTheme::createPlatformMenuBar() const {
-  return winTheme->createPlatformMenuBar();
-}
-
-void QtCTPlatformTheme::showPlatformMenuBar() {
-  return winTheme->showPlatformMenuBar();
-}
-
-bool QtCTPlatformTheme::usePlatformNativeDialog(DialogType type) const {
+bool QtCTPlatformTheme::usePlatformNativeDialog(
+    DialogType type) const {
   return m_theme ? m_theme->usePlatformNativeDialog(type)
-                 : winTheme->usePlatformNativeDialog(type);
+                 : QWindowsTheme::usePlatformNativeDialog(type);
 }
 
 QPlatformDialogHelper *QtCTPlatformTheme::createPlatformDialogHelper(
     DialogType type) const {
   return m_theme ? m_theme->createPlatformDialogHelper(type)
-                 : winTheme->createPlatformDialogHelper(type);
+                 : QWindowsTheme::createPlatformDialogHelper(type);
 }
 
-QPlatformSystemTrayIcon *QtCTPlatformTheme::createPlatformSystemTrayIcon()
-    const {
-  return winTheme->createPlatformSystemTrayIcon();
+const QPalette *QtCTPlatformTheme::palette(
+    QPlatformTheme::Palette type) const {
+  qDebug() << Q_FUNC_INFO << type;
+  return (m_usePalette && m_palette) ? m_palette.get()
+                                     : QWindowsTheme::palette(type);
 }
 
-const QPalette *QtCTPlatformTheme::palette(QPlatformTheme::Palette type) const {
-  // https://github.com/qt/qtbase/blob/3828b30951e3bdaa8227d0ade14725de04593671/src/widgets/styles/qstyle.cpp#L2301
-  return (m_usePalette && m_style != "windowsvista") ? &m_palette
-                                                     : winTheme->palette(type);
-}
-
-const QFont *QtCTPlatformTheme::font(QPlatformTheme::Font type) const {
+const QFont *QtCTPlatformTheme::font(
+    QPlatformTheme::Font type) const {
   if (m_fontOverride) {
     if (type == QPlatformTheme::FixedFont) return &m_fixedFont;
     return &m_generalFont;
   } else {
-    return winTheme->font(type);
+    return QWindowsTheme::font(type);
   }
 }
 
-QVariant QtCTPlatformTheme::themeHint(QPlatformTheme::ThemeHint hint) const {
-  if (m_isIgnored) return winTheme->themeHint(hint);
+QVariant QtCTPlatformTheme::themeHint(
+    QPlatformTheme::ThemeHint hint) const {
+  if (m_isIgnored) return QWindowsTheme::themeHint(hint);
 
   switch (hint) {
     case QPlatformTheme::CursorFlashTime:
@@ -153,7 +133,7 @@ QVariant QtCTPlatformTheme::themeHint(QPlatformTheme::ThemeHint hint) const {
     case QPlatformTheme::ShowShortcutsInContextMenus:
       return m_showShortcutsInContextMenus;
     default:
-      return winTheme->themeHint(hint);
+      return QWindowsTheme::themeHint(hint);
   }
 }
 
@@ -165,16 +145,6 @@ QIcon QtCTPlatformTheme::fileIcon(
   QMimeDatabase db;
   QMimeType type = db.mimeTypeForFile(fileInfo);
   return QIcon::fromTheme(type.iconName());
-}
-
-QPixmap QtCTPlatformTheme::standardPixmap(StandardPixmap sp,
-                                          const QSizeF &size) const {
-  return winTheme->standardPixmap(sp, size);
-};
-
-QIconEngine *QtCTPlatformTheme::createIconEngine(
-    const QString &iconName) const {
-  return winTheme->createIconEngine(iconName);
 }
 
 void QtCTPlatformTheme::applySettings() {
@@ -205,7 +175,10 @@ void QtCTPlatformTheme::applySettings() {
       QtCT::reloadStyleInstanceSettings();
     }
 
-    if (m_update && m_usePalette) qApp->setPalette(m_palette);
+    if (!m_palette)
+      m_palette = std::make_unique<QPalette>(qApp->style()->standardPalette());
+
+    if (m_update && m_usePalette) qApp->setPalette(*m_palette);
 
     if (m_userStyleSheet != m_prevStyleSheet) {
       // prepend our stylesheet to that of the application
@@ -230,7 +203,7 @@ void QtCTPlatformTheme::applySettings() {
     for (QWidget *w : qApp->allWidgets()) {
       QEvent e(QEvent::ThemeChange);
       QApplication::sendEvent(w, &e);
-      if (m_usePalette) w->setPalette(m_palette);
+      if (m_palette && m_usePalette) w->setPalette(*m_palette);
     }
   }
 #endif
@@ -268,6 +241,8 @@ QHash<QString, int> effectsMap{
 
 void QtCTPlatformTheme::readSettings() {
   QSettings settings(QtCT::configFile(), QSettings::IniFormat);
+  m_palette.reset();
+
   QtCT::qt5QSettingsCompatible(settings);
 
   settings.beginGroup("Appearance");
@@ -276,12 +251,8 @@ void QtCTPlatformTheme::readSettings() {
   if (!schemePath.isEmpty() &&
       settings.value("custom_palette", false).toBool()) {
     schemePath = QtCT::resolvePath(schemePath);
-    m_palette = QtCT::loadColorScheme(schemePath);
-  } else if (m_style == "windowsvista")
-    m_palette = *winTheme->palette();
-  else {
-    // https://github.com/qt/qtbase/blob/3828b30951e3bdaa8227d0ade14725de04593671/src/widgets/styles/qstyle.cpp#L2301
-    m_palette = QStyleFactory::create(m_style)->standardPalette();
+    m_palette = std::make_unique<QPalette>(QtCT::loadColorScheme(
+        schemePath, *QPlatformTheme::palette(SystemPalette)));
   }
   m_iconTheme = settings.value("icon_theme").toString();
   // load dialogs
@@ -310,21 +281,22 @@ void QtCTPlatformTheme::readSettings() {
 
   settings.beginGroup("Interface");
   m_doubleClickInterval =
-      winTheme->themeHint(QPlatformTheme::MouseDoubleClickInterval).toInt();
+      QWindowsTheme::themeHint(QPlatformTheme::MouseDoubleClickInterval)
+          .toInt();
   m_doubleClickInterval =
       settings.value("double_click_interval", m_doubleClickInterval).toInt();
   m_cursorFlashTime =
-      winTheme->themeHint(QPlatformTheme::CursorFlashTime).toInt();
+      QWindowsTheme::themeHint(QPlatformTheme::CursorFlashTime).toInt();
   m_cursorFlashTime =
       settings.value("cursor_flash_time", m_cursorFlashTime).toInt();
   m_showShortcutsInContextMenus =
       settings.value("show_shortcuts_in_context_menus", true).toBool();
   m_buttonBoxLayout =
-      winTheme->themeHint(QPlatformTheme::DialogButtonBoxLayout).toInt();
+      QWindowsTheme::themeHint(QPlatformTheme::DialogButtonBoxLayout).toInt();
   m_buttonBoxLayout =
       settings.value("buttonbox_layout", m_buttonBoxLayout).toInt();
   m_keyboardScheme =
-      winTheme->themeHint(QPlatformTheme::KeyboardScheme).toInt();
+      QWindowsTheme::themeHint(QPlatformTheme::KeyboardScheme).toInt();
   m_keyboardScheme =
       settings.value("keyboard_scheme", m_keyboardScheme).toInt();
   QCoreApplication::setAttribute(
@@ -335,7 +307,7 @@ void QtCTPlatformTheme::readSettings() {
   m_wheelScrollLines = settings.value("wheel_scroll_lines", 3).toInt();
 
   // load effects
-  m_uiEffects = winTheme->themeHint(QPlatformTheme::UiEffects).toInt();
+  m_uiEffects = QWindowsTheme::themeHint(QPlatformTheme::UiEffects).toInt();
   if (settings.childKeys().contains("gui_effects")) {
     QStringList effectList = settings.value("gui_effects").toStringList();
     m_uiEffects = 0;
@@ -374,7 +346,8 @@ bool QtCTPlatformTheme::hasWidgets() {
 }
 #endif
 
-QString QtCTPlatformTheme::loadStyleSheets(const QStringList &paths) {
+QString QtCTPlatformTheme::loadStyleSheets(
+    const QStringList &paths) {
   QString content;
   for (const QString &path : qAsConst(paths)) {
     if (!QFile::exists(path)) continue;

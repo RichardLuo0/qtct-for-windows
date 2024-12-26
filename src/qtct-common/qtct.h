@@ -54,7 +54,8 @@ QStringList iconPaths();
 QString userStyleSheetPath();
 QString userColorSchemePath();
 QString resolvePath(const QString &path);
-QPalette loadColorScheme(const QString &filePath);
+QPalette loadColorScheme(const QString &filePath,
+                         const QPalette &fallback = QPalette());
 
 void registerStyleInstance(StyleInstance *instance);
 void unregisterStyleInstance(StyleInstance *instance);
